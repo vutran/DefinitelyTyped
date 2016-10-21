@@ -13,13 +13,13 @@ interface amplifyRequestSettings {
 }
 
 interface amplifyDecoder {
-    (   
-        data?: any, 
-        status?: string, 
-        xhr?: JQueryXHR, 
+    (
+        data?: any,
+        status?: string,
+        xhr?: JQueryXHR,
         success?: (...args: any[]) => void,
         error?: (...args: any[]) => void
-    ): void
+    ): void;
 }
 
 interface amplifyDecoders {
@@ -74,7 +74,7 @@ interface amplifyRequest {
     *   error: Callback to invoke on error.
     */
     define(resourceId: string, resource: (settings: amplifyRequestSettings) => void): void;
-    
+
     decoders: amplifyDecoders;
     cache: any;
 }
@@ -105,7 +105,7 @@ interface amplifySubscribe {
 interface amplifyStorageTypeStore {
     /***
     * Stores a value for a given key using the default storage type.
-    * 
+    *
     * key: Identifier for the value being stored.
     * value: The value to store. The value can be anything that can be serialized as JSON.
     * [options]: A set of key/value pairs that relate to settings for storing the value.
@@ -123,14 +123,14 @@ interface amplifyStorageTypeStore {
     (): any;
 }
 
-interface amplifyStore extends amplifyStorageTypeStore{
+interface amplifyStore extends amplifyStorageTypeStore {
 
-    /*** 
+    /***
     * IE 8+, Firefox 3.5+, Safari 4+, Chrome, Opera 10.5+, iPhone 2+, Android 2+
     */
     localStorage: amplifyStorageTypeStore;
 
-    /*** 
+    /***
     * IE 8+, Firefox 2+, Safari 4+, Chrome, Opera 10.5+, iPhone 2+, Android 2+
     */
     sessionStorage: amplifyStorageTypeStore;
@@ -139,7 +139,7 @@ interface amplifyStore extends amplifyStorageTypeStore{
     * Firefox 2+
     */
     globalStorage: amplifyStorageTypeStore;
-    
+
     /***
     * IE 5 - 7
     */
@@ -149,8 +149,8 @@ interface amplifyStore extends amplifyStorageTypeStore{
     * An in-memory store is provided as a fallback if none of the other storage types are available.
     */
     memory: amplifyStorageTypeStore;
-    
-    
+
+
 }
 
 interface amplifyStatic {
@@ -179,4 +179,6 @@ interface amplifyStatic {
 }
 
 declare var amplify: amplifyStatic;
-declare module "amplify" { export =amplify; }
+declare module "amplify" {
+    export = amplify;
+}

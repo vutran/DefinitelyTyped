@@ -1124,7 +1124,7 @@ declare namespace PIXI {
     ////////////////////////////EXTRAS////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////
 
-    export module extras {
+    export namespace extras {
 
         export interface BitmapTextStyle {
 
@@ -1442,7 +1442,7 @@ declare namespace PIXI {
     ////////////////////////////INTERACTION///////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////
 
-    export module interaction {
+    export namespace interaction {
 
         export interface InteractionEvent {
 
@@ -1533,7 +1533,7 @@ declare namespace PIXI {
     //////////////////////////////////////////////////////////////////////////////
     //https://github.com/englercj/resource-loader/blob/master/src/Loader.js
 
-    export module loaders {
+    export namespace loaders {
         export interface LoaderOptions {
 
             crossOrigin?: boolean;
@@ -1633,7 +1633,7 @@ declare namespace PIXI {
     ///////////////////////////////MESH///////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////
 
-    export module mesh {
+    export namespace mesh {
 
         export class Mesh extends Container {
 

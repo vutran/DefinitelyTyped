@@ -2,7 +2,7 @@
 // Project: https://github.com/HelloFax/hellosign-embedded
 // Definitions by: Brian Surowiec <https://github.com/xt0rted/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-declare module HelloSign {
+declare namespace HelloSign {
     interface MessageEvent {
         event: string;
     }

@@ -22,19 +22,19 @@ declare namespace Quill {
     }
 
     export interface QuillOptionsStatic {
-        debug?: string,
-        modules?: Formats,
-        placeholder?: string,
-        readOnly?: boolean,
-        theme?: string,
-        formats?: string[] 
+        debug?: string;
+        modules?: Formats;
+        placeholder?: string;
+        readOnly?: boolean;
+        theme?: string;
+        formats?: string[];
     }
 
     export interface BoundsStatic {
-        left: number,
-        top: number,
-        height: number,
-        width: number
+        left: number;
+        top: number;
+        height: number;
+        width: number;
     }
 
     export interface DeltaStatic {

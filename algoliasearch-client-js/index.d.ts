@@ -946,14 +946,14 @@ interface SearchSynonymOptions {
      * default: 100
      * https://github.com/algolia/algoliasearch-client-js#search-synonyms---searchsynonyms
      */
-    hitsPerPage?: number
+    hitsPerPage?: number;
 }
 interface AlgoliaBrowseResponse {
-    cursor?: string,
-    hits: any[],
-    params: string,
-    query: string,
-    processingTimeMS: number
+    cursor?: string;
+    hits: any[];
+    params: string;
+    query: string;
+    processingTimeMS: number;
 }
 /**
  * Describes a synonym object
@@ -1566,6 +1566,6 @@ interface AlgoliaQueryParameters {
 }
 
 declare module "algoliasearch" {
-    function algoliasearch(applicationId: string, apiKey: string, options?: ClientOptions) : AlgoliaClient;
+    function algoliasearch(applicationId: string, apiKey: string, options?: ClientOptions): AlgoliaClient;
     export = algoliasearch;
 }

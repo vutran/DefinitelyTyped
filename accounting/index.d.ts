@@ -14,7 +14,7 @@ interface IAccountingCurrencySettings<TFormat> {
     format?: TFormat;    // controls output: %s = symbol, %v = value/number
     decimal?: string;    // decimal point separator
     thousand?: string;   // thousands separator
-    precision?: number   // decimal places
+    precision?: number;   // decimal places
 }
 
 interface IAccountingNumberSettings {

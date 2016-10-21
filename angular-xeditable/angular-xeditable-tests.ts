@@ -3,7 +3,7 @@
 var myApp = angular.module('testModule', ['xeditable']);
 
 myApp.run(["editableOptions", (editableOptions: angular.xeditable.IEditableOptions) => {
-    
+
         editableOptions.activate = "select";
         editableOptions.activationEvent = "click";
         editableOptions.blurElem = "ignore";

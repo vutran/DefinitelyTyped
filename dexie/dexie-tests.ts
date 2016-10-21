@@ -20,6 +20,6 @@ var db = new MyDB();
 
 db.friends.add({name: "Kalle", age: 23}).then(()=>{
    db.friends.where('age').below(30).count(count => {
-      console.log("Num yound friends: " + count); 
+      console.log("Num yound friends: " + count);
    });
 });

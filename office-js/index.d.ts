@@ -61,7 +61,7 @@ declare namespace Office {
              * @param minVersion - The minimum required version.
              */
             isSetSupported(name: string, minVersion?: number): boolean;
-        }
+        };
     }
     export interface Error {
         message: string;
@@ -85,15 +85,15 @@ declare namespace Office {
         /**
          * Optional. Defines the width of the dialog as a percentage of the current display. Defaults to 99%. 250px minimum.
          */
-        height?: number,
+        height?: number;
         /**
          * Optional. Defines the height of the dialog as a percentage of the current display. Defaults to 99%. 150px minimum.
          */
-        width?: number,
+        width?: number;
         /**
          * Optional. Determines whether the dialog is safe to display within a Web frame.
          */
-        xFrameDenySafe?: boolean,
+        xFrameDenySafe?: boolean;
     }
 
     /**
@@ -112,7 +112,7 @@ declare namespace Office {
     }
 }
 
-declare module OfficeExtension {
+declare namespace OfficeExtension {
     /** An abstract proxy object that represents an object in an Office document. You create proxy objects from the context (or from other proxy objects), add commands to a queue to act on the object, and then synchronize the proxy object state with the document by calling "context.sync()". */
     class ClientObject {
         /** The request context associated with the object */
@@ -121,7 +121,7 @@ declare module OfficeExtension {
         isNull: boolean;
     }
 }
-declare module OfficeExtension {
+declare namespace OfficeExtension {
     interface LoadOption {
         select?: string | string[];
         expand?: string | string[];
@@ -141,14 +141,14 @@ declare module OfficeExtension {
         sync<T>(passThroughValue?: T): IPromise<T>;
     }
 }
-declare module OfficeExtension {
+declare namespace OfficeExtension {
     /** Contains the result for methods that return primitive types. The object's value property is retrieved from the document after "context.sync()" is invoked. */
     class ClientResult<T> {
         /** The value of the result that is retrieved from the document after "context.sync()" is invoked. */
         value: T;
     }
 }
-declare module OfficeExtension {
+declare namespace OfficeExtension {
     /** The error object returned by "context.sync()", if a promise is rejected due to an error while processing the request. */
     class Error {
         /** Error name: "OfficeExtension.Error".*/
@@ -168,7 +168,7 @@ declare module OfficeExtension {
         };
     }
 }
-declare module OfficeExtension {
+declare namespace OfficeExtension {
     class ErrorCodes {
         static accessDenied: string;
         static generalException: string;
@@ -182,7 +182,7 @@ declare module OfficeExtension {
         static cannotRegisterEvent: string;
     }
 }
-declare module OfficeExtension {
+declare namespace OfficeExtension {
     /** An IPromise object that represents a deferred interaction with the host Office application. */
     interface IPromise<R> {
         /**
@@ -260,8 +260,7 @@ declare module OfficeExtension {
     }
 
     /** An Promise object that represents a deferred interaction with the host Office application. The publically-consumable OfficeExtension.Promise is available starting in ExcelApi 1.2 and WordApi 1.2. Promises can be chained via ".then", and errors can be caught via ".catch". Remember to always use a ".catch" on the outer promise, and to return intermediary promises so as not to break the promise chain. When a "native" Promise implementation is available, OfficeExtension.Promise will switch to use the native Promise instead. */
-    export class Promise<R> implements IPromise<R>
-    {
+    export class Promise<R> implements IPromise<R> {
         /**
          * Creates a new promise based on a function that accepts resolve and reject handlers.
          */
@@ -356,7 +355,7 @@ declare module OfficeExtension {
     }
 }
 
-declare module OfficeExtension {
+declare namespace OfficeExtension {
     /** Collection of tracked objects, contained within a request context. See "context.trackedObjects" for more information. */
     class TrackedObjects {
         /** Track a new object for automatic adjustment based on surrounding changes in the document. Only some object types require this. If you are using an object across ".sync" calls and outside the sequential execution of a ".run" batch, and get an "InvalidObjectPath" error when setting a property or invoking a method on the object, you needed to have added the object to the tracked object collection when the object was first created. */
@@ -370,7 +369,7 @@ declare module OfficeExtension {
     }
 }
 
-declare module OfficeExtension {
+declare namespace OfficeExtension {
     export class EventHandlers<T> {
         constructor(context: ClientRequestContext, parentObject: ClientObject, name: string, eventInfo: EventInfo<T>);
         add(handler: (args: T) => IPromise<any>): EventHandlerResult<T>;
@@ -939,7 +938,7 @@ declare namespace Office {
         /**
          * File's URL
          */
-        url: string
+        url: string;
     }
     export interface MatrixBinding extends Binding {
         columnCount: number;
@@ -1660,7 +1659,7 @@ declare namespace Office {
         getWSSUrlAsync(options?: any, callback?: (result: AsyncResult) => void): void;
     }
 }
-declare module Excel {
+declare namespace Excel {
     interface ThreeArrowsSet {
         [index: number]: Icon;
         redDownArrow: Icon;
@@ -5126,7 +5125,7 @@ declare module Excel {
          *
          * The first criterion used to filter data. Used as an operator in the case of "custom" filtering.
              For example ">50" for number greater than 50 or "=*s" for values ending in "s".
-            
+
              Used as a number in the case of top/bottom items/percents. E.g. "5" for the top 5 items if filterOn is set to "topItems"
          *
          * [Api set: ExcelApi 1.2]
@@ -5297,7 +5296,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module BindingType {
+    namespace BindingType {
         var range: string;
         var table: string;
         var text: string;
@@ -5305,7 +5304,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module BorderIndex {
+    namespace BorderIndex {
         var edgeTop: string;
         var edgeBottom: string;
         var edgeLeft: string;
@@ -5318,7 +5317,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module BorderLineStyle {
+    namespace BorderLineStyle {
         var none: string;
         var continuous: string;
         var dash: string;
@@ -5331,7 +5330,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module BorderWeight {
+    namespace BorderWeight {
         var hairline: string;
         var thin: string;
         var medium: string;
@@ -5340,7 +5339,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module CalculationMode {
+    namespace CalculationMode {
         var automatic: string;
         var automaticExceptTables: string;
         var manual: string;
@@ -5348,7 +5347,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module CalculationType {
+    namespace CalculationType {
         var recalculate: string;
         var full: string;
         var fullRebuild: string;
@@ -5356,7 +5355,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module ClearApplyTo {
+    namespace ClearApplyTo {
         var all: string;
         var formats: string;
         var contents: string;
@@ -5364,7 +5363,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module ChartDataLabelPosition {
+    namespace ChartDataLabelPosition {
         var invalid: string;
         var none: string;
         var center: string;
@@ -5381,7 +5380,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module ChartLegendPosition {
+    namespace ChartLegendPosition {
         var invalid: string;
         var top: string;
         var bottom: string;
@@ -5396,7 +5395,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
-    module ChartSeriesBy {
+    namespace ChartSeriesBy {
         /**
          *
          * On Desktop, the "auto" option will inspect the source data shape to automatically guess whether the data is by rows or columns; on Excel Online, "auto" will simply default to "columns".
@@ -5409,7 +5408,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module ChartType {
+    namespace ChartType {
         var invalid: string;
         var columnClustered: string;
         var columnStacked: string;
@@ -5488,21 +5487,21 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module ChartUnderlineStyle {
+    namespace ChartUnderlineStyle {
         var none: string;
         var single: string;
     }
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module DeleteShiftDirection {
+    namespace DeleteShiftDirection {
         var up: string;
         var left: string;
     }
     /**
      * [Api set: ExcelApi 1.2]
      */
-    module DynamicFilterCriteria {
+    namespace DynamicFilterCriteria {
         var unknown: string;
         var aboveAverage: string;
         var allDatesInPeriodApril: string;
@@ -5542,7 +5541,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.2]
      */
-    module FilterDatetimeSpecificity {
+    namespace FilterDatetimeSpecificity {
         var year: string;
         var month: string;
         var day: string;
@@ -5553,7 +5552,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.2]
      */
-    module FilterOn {
+    namespace FilterOn {
         var bottomItems: string;
         var bottomPercent: string;
         var cellColor: string;
@@ -5568,14 +5567,14 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.2]
      */
-    module FilterOperator {
+    namespace FilterOperator {
         var and: string;
         var or: string;
     }
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module HorizontalAlignment {
+    namespace HorizontalAlignment {
         var general: string;
         var left: string;
         var center: string;
@@ -5588,7 +5587,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.2]
      */
-    module IconSet {
+    namespace IconSet {
         var invalid: string;
         var threeArrows: string;
         var threeArrowsGray: string;
@@ -5614,7 +5613,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.2]
      */
-    module ImageFittingMode {
+    namespace ImageFittingMode {
         var fit: string;
         var fitAndCenter: string;
         var fill: string;
@@ -5622,14 +5621,14 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module InsertShiftDirection {
+    namespace InsertShiftDirection {
         var down: string;
         var right: string;
     }
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module NamedItemType {
+    namespace NamedItemType {
         var string: string;
         var integer: string;
         var double: string;
@@ -5639,7 +5638,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module RangeUnderlineStyle {
+    namespace RangeUnderlineStyle {
         var none: string;
         var single: string;
         var double: string;
@@ -5649,7 +5648,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module SheetVisibility {
+    namespace SheetVisibility {
         var visible: string;
         var hidden: string;
         var veryHidden: string;
@@ -5657,7 +5656,7 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module RangeValueType {
+    namespace RangeValueType {
         var unknown: string;
         var empty: string;
         var string: string;
@@ -5669,14 +5668,14 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.2]
      */
-    module SortOrientation {
+    namespace SortOrientation {
         var rows: string;
         var columns: string;
     }
     /**
      * [Api set: ExcelApi 1.2]
      */
-    module SortOn {
+    namespace SortOn {
         var value: string;
         var cellColor: string;
         var fontColor: string;
@@ -5685,21 +5684,21 @@ declare module Excel {
     /**
      * [Api set: ExcelApi 1.2]
      */
-    module SortDataOption {
+    namespace SortDataOption {
         var normal: string;
         var textAsNumber: string;
     }
     /**
      * [Api set: ExcelApi 1.2]
      */
-    module SortMethod {
+    namespace SortMethod {
         var pinYin: string;
         var strokeCount: string;
     }
     /**
      * [Api set: ExcelApi 1.1]
      */
-    module VerticalAlignment {
+    namespace VerticalAlignment {
         var top: string;
         var center: string;
         var bottom: string;
@@ -9478,7 +9477,7 @@ declare module Excel {
          */
         z_Test(array: number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>, x: number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>, sigma?: number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>): FunctionResult<number>;
     }
-    module ErrorCodes {
+    namespace ErrorCodes {
         var accessDenied: string;
         var generalException: string;
         var insertDeleteConflict: string;
@@ -9493,7 +9492,7 @@ declare module Excel {
         var unsupportedOperation: string;
     }
 }
-declare module Excel {
+declare namespace Excel {
     /**
      * The RequestContext object facilitates requests to the Excel application. Since the Office add-in and the Excel application run in two different processes, the request context is required to get access to the Excel object model from the add-in.
      */
@@ -12668,7 +12667,7 @@ declare namespace Word {
      *
      * [Api set: WordApi]
      */
-    module ContentControlType {
+    namespace ContentControlType {
         var unknown: string;
         var richTextInline: string;
         var richTextParagraphs: string;
@@ -12693,7 +12692,7 @@ declare namespace Word {
      *
      * [Api set: WordApi]
      */
-    module ContentControlAppearance {
+    namespace ContentControlAppearance {
         var boundingBox: string;
         var tags: string;
         var hidden: string;
@@ -12704,7 +12703,7 @@ declare namespace Word {
      *
      * [Api set: WordApi]
      */
-    module UnderlineType {
+    namespace UnderlineType {
         var none: string;
         var single: string;
         var word: string;
@@ -12721,7 +12720,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module BreakType {
+    namespace BreakType {
         var page: string;
         var column: string;
         var next: string;
@@ -12739,7 +12738,7 @@ declare namespace Word {
      *
      * [Api set: WordApi]
      */
-    module InsertLocation {
+    namespace InsertLocation {
         var before: string;
         var after: string;
         var start: string;
@@ -12749,7 +12748,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module Alignment {
+    namespace Alignment {
         var unknown: string;
         var left: string;
         var centered: string;
@@ -12759,7 +12758,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module HeaderFooterType {
+    namespace HeaderFooterType {
         var primary: string;
         var firstPage: string;
         var evenPages: string;
@@ -12767,7 +12766,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module BodyType {
+    namespace BodyType {
         var unknown: string;
         var mainDoc: string;
         var section: string;
@@ -12778,7 +12777,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module SelectionMode {
+    namespace SelectionMode {
         var select: string;
         var start: string;
         var end: string;
@@ -12786,7 +12785,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module ImageFormat {
+    namespace ImageFormat {
         var unsupported: string;
         var undefined: string;
         var bmp: string;
@@ -12804,7 +12803,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module RangeLocation {
+    namespace RangeLocation {
         var whole: string;
         var start: string;
         var end: string;
@@ -12812,7 +12811,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module LocationRelation {
+    namespace LocationRelation {
         var unrelated: string;
         var equal: string;
         var containsStart: string;
@@ -12831,7 +12830,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module BorderLocation {
+    namespace BorderLocation {
         var top: string;
         var left: string;
         var bottom: string;
@@ -12845,7 +12844,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module BorderType {
+    namespace BorderType {
         var mixed: string;
         var none: string;
         var single: string;
@@ -12876,7 +12875,7 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module VerticalAlignment {
+    namespace VerticalAlignment {
         var mixed: string;
         var top: string;
         var center: string;
@@ -12885,12 +12884,12 @@ declare namespace Word {
     /**
      * [Api set: WordApi]
      */
-    module ListLevelType {
+    namespace ListLevelType {
         var bullet: string;
         var number: string;
         var picture: string;
     }
-    module ErrorCodes {
+    namespace ErrorCodes {
         var accessDenied: string;
         var generalException: string;
         var invalidArgument: string;
@@ -13017,7 +13016,7 @@ declare namespace Office.MailboxEnums {
     }
 }
 declare namespace Office {
-    export module Types {
+    export namespace Types {
         export interface ItemRead extends Office.Item {
             subject: any;
             /**
@@ -13229,8 +13228,8 @@ declare namespace Office {
             getRegExMatchesByName(name: string): string[];
         }
     }
-    export module cast {
-        export module item {
+    export namespace cast {
+        export namespace item {
             function toAppointmentCompose(item: Office.Item): Office.Types.AppointmentCompose;
             function toAppointmentRead(item: Office.Item): Office.Types.AppointmentRead;
             function toAppointment(item: Office.Item): Office.Appointment;
@@ -15640,14 +15639,14 @@ declare namespace OneNote {
     /**
      * [Api set: OneNoteApi]
      */
-    module InsertLocation {
+    namespace InsertLocation {
         var before: string;
         var after: string;
     }
     /**
      * [Api set: OneNoteApi]
      */
-    module Alignment {
+    namespace Alignment {
         var left: string;
         var centered: string;
         var right: string;
@@ -15656,7 +15655,7 @@ declare namespace OneNote {
     /**
      * [Api set: OneNoteApi]
      */
-    module Selected {
+    namespace Selected {
         var notSelected: string;
         var partialSelected: string;
         var selected: string;
@@ -15664,7 +15663,7 @@ declare namespace OneNote {
     /**
      * [Api set: OneNoteApi]
      */
-    module PageContentType {
+    namespace PageContentType {
         var outline: string;
         var image: string;
         var ink: string;
@@ -15673,14 +15672,14 @@ declare namespace OneNote {
     /**
      * [Api set: OneNoteApi]
      */
-    module ParagraphType {
+    namespace ParagraphType {
         var richText: string;
         var image: string;
         var table: string;
         var ink: string;
         var other: string;
     }
-    module ErrorCodes {
+    namespace ErrorCodes {
         var generalException: string;
     }
 }

@@ -16,12 +16,12 @@ declare namespace commander {
          * @param {String} name
          * @api public
          */
-        new (name?:string):ICommand;
+        new (name?: string): ICommand;
     }
 
     interface ICommand extends NodeJS.EventEmitter {
         args: string[];
-        _args: { required:boolean; name: string; }[];
+        _args: { required: boolean; name: string; }[];
 
         /**
          * Add command `name`.
@@ -72,7 +72,7 @@ declare namespace commander {
          * @return {Command} the new command
          * @api public
          */
-        command(name:string, desc?:string, opts?: any):ICommand;
+        command(name: string, desc?: string, opts?: any): ICommand;
 
         /**
          * Add an implicit `help [cmd]` subcommand
@@ -80,7 +80,7 @@ declare namespace commander {
          *
          * @api private
          */
-        addImplicitHelpCommand():void;
+        addImplicitHelpCommand(): void;
 
         /**
          * Parse expected `args`.
@@ -91,7 +91,7 @@ declare namespace commander {
          * @return {Command} for chaining
          * @api public
          */
-        parseExpectedArgs(args:string[]):ICommand;
+        parseExpectedArgs(args: string[]): ICommand;
 
         /**
          * Register callback `fn` for the command.
@@ -109,7 +109,7 @@ declare namespace commander {
          * @return {Command} for chaining
          * @api public
          */
-        action(fn:(...args:any[])=>void):ICommand;
+        action(fn: (...args: any[]) => void): ICommand;
 
         /**
          * Define option with `flags`, `description` and optional
@@ -159,8 +159,8 @@ declare namespace commander {
          * @return {Command} for chaining
          * @api public
          */
-        option(flags:string, description?:string, fn?:((arg1:any, arg2:any)=>void)|RegExp, defaultValue?:any):ICommand;
-        option(flags:string, description?:string, defaultValue?:any):ICommand;
+        option(flags: string, description?: string, fn?: ((arg1: any, arg2: any) => void)|RegExp, defaultValue?: any): ICommand;
+        option(flags: string, description?: string, defaultValue?: any): ICommand;
 
         /**
          * Allow unknown options on the command line.
@@ -169,7 +169,7 @@ declare namespace commander {
          * for unknown options.
          * @api public
          */
-        allowUnknownOption(arg?: boolean):ICommand;
+        allowUnknownOption(arg?: boolean): ICommand;
 
         /**
          * Parse `argv`, settings options and invoking commands when defined.
@@ -178,7 +178,7 @@ declare namespace commander {
          * @return {Command} for chaining
          * @api public
          */
-        parse(argv:string[]):ICommand;
+        parse(argv: string[]): ICommand;
 
         /**
          * Execute a sub-command executable.
@@ -188,7 +188,7 @@ declare namespace commander {
          * @param {Array} unknown
          * @api private
          */
-        executeSubCommand(argv:string[], args:string[], unknown:string[]):any; /* child_process.ChildProcess */
+        executeSubCommand(argv: string[], args: string[], unknown: string[]): any; /* child_process.ChildProcess */
 
         /**
          * Normalize `args`, splitting joined short flags. For example
@@ -199,7 +199,7 @@ declare namespace commander {
          * @return {Array}
          * @api private
          */
-        normalize(args:string[]):string[];
+        normalize(args: string[]): string[];
 
         /**
          * Parse command `args`.
@@ -212,7 +212,7 @@ declare namespace commander {
          * @return {Command} for chaining
          * @api private
          */
-        parseArgs(args:string[], unknown:string[]):ICommand;
+        parseArgs(args: string[], unknown: string[]): ICommand;
 
         /**
          * Return an option matching `arg` if any.
@@ -221,7 +221,7 @@ declare namespace commander {
          * @return {Option}
          * @api private
          */
-        optionFor(arg:string):IOption;
+        optionFor(arg: string): IOption;
 
         /**
          * Parse options from `argv` returning `argv`
@@ -231,7 +231,7 @@ declare namespace commander {
          * @return {Array}
          * @api public
          */
-        parseOptions(argv:string[]): {args:string[]; unknown:string[];};
+        parseOptions(argv: string[]): {args: string[]; unknown: string[]};
 
         /**
          * Return an object containing options as key-value pairs
@@ -239,7 +239,7 @@ declare namespace commander {
          * @return {Object}
          * @api public
          */
-        opts():any;
+        opts(): any;
 
         /**
          * Argument `name` is missing.
@@ -247,7 +247,7 @@ declare namespace commander {
          * @param {String} name
          * @api private
          */
-        missingArgument(name:string):void;
+        missingArgument(name: string): void;
 
         /**
          * `Option` is missing an argument, but received `flag` or nothing.
@@ -256,7 +256,7 @@ declare namespace commander {
          * @param {String} flag
          * @api private
          */
-        optionMissingArgument(option:{flags:string;}, flag?:string):void;
+        optionMissingArgument(option: {flags: string}, flag?: string): void;
 
         /**
          * Unknown option `flag`.
@@ -264,7 +264,7 @@ declare namespace commander {
          * @param {String} flag
          * @api private
          */
-        unknownOption(flag:string):void;
+        unknownOption(flag: string): void;
 
         /**
          * Set the program version to `str`.
@@ -277,7 +277,7 @@ declare namespace commander {
          * @return {Command} for chaining
          * @api public
          */
-        version(str:string, flags?:string):ICommand;
+        version(str: string, flags?: string): ICommand;
 
         /**
          * Set the description to `str`.
@@ -286,8 +286,8 @@ declare namespace commander {
          * @return {String|Command}
          * @api public
          */
-        description(str:string):ICommand;
-        description():string;
+        description(str: string): ICommand;
+        description(): string;
 
         /**
          * Set an alias for the command
@@ -296,8 +296,8 @@ declare namespace commander {
          * @return {String|Command}
          * @api public
          */
-        alias(alias:string):ICommand;
-        alias():string;
+        alias(alias: string): ICommand;
+        alias(): string;
 
         /**
          * Set / get the command usage `str`.
@@ -306,8 +306,8 @@ declare namespace commander {
          * @return {String|Command}
          * @api public
          */
-        usage(str:string):ICommand;
-        usage():string;
+        usage(str: string): ICommand;
+        usage(): string;
 
         /**
          * Get the name of the command
@@ -316,7 +316,7 @@ declare namespace commander {
          * @return {String|Command}
          * @api public
          */
-        name():string;
+        name(): string;
 
         /**
          * Return the largest option length.
@@ -324,7 +324,7 @@ declare namespace commander {
          * @return {Number}
          * @api private
          */
-        largestOptionLength():number;
+        largestOptionLength(): number;
 
         /**
          * Return help for options.
@@ -332,7 +332,7 @@ declare namespace commander {
          * @return {String}
          * @api private
          */
-        optionHelp():string;
+        optionHelp(): string;
 
         /**
          * Return command help documentation.
@@ -340,7 +340,7 @@ declare namespace commander {
          * @return {String}
          * @api private
          */
-        commandHelp():string;
+        commandHelp(): string;
 
         /**
          * Return program help documentation.
@@ -348,21 +348,21 @@ declare namespace commander {
          * @return {String}
          * @api private
          */
-        helpInformation():string;
+        helpInformation(): string;
 
         /**
          * Output help information for this command
          *
          * @api public
          */
-        outputHelp():void;
+        outputHelp(): void;
 
         /**
          * Output help information and exit.
          *
          * @api public
          */
-        help():void;
+        help(): void;
     }
 
     interface IOptionStatic {
@@ -373,17 +373,17 @@ declare namespace commander {
          * @param {String} description
          * @api public
          */
-        new (flags:string, description?:string):IOption;
+        new (flags: string, description?: string): IOption;
     }
 
     interface IOption {
-        flags:string;
-        required:boolean;
-        optional:boolean;
-        bool:boolean;
-        short?:string;
-        long:string;
-        description:string;
+        flags: string;
+        required: boolean;
+        optional: boolean;
+        bool: boolean;
+        short?: string;
+        long: string;
+        description: string;
 
         /**
          * Return option name.
@@ -391,7 +391,7 @@ declare namespace commander {
          * @return {String}
          * @api private
          */
-        name():string;
+        name(): string;
 
         /**
          * Check if `arg` matches the short or long flag.
@@ -400,7 +400,7 @@ declare namespace commander {
          * @return {Boolean}
          * @api private
          */
-        is(arg:string):boolean;
+        is(arg: string): boolean;
     }
 
     interface IExportedCommand extends ICommand {

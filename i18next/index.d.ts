@@ -61,7 +61,7 @@ declare namespace i18n {
         fallbackNS?: string | string[];
         whitelist?: string[];
         lowerCaseLng?: boolean;
-        load?: string
+        load?: string;
         preload?: string[];
         keySeparator?: string;
         nsSeparator?: string;
@@ -133,6 +133,6 @@ declare namespace i18n {
     }
 }
 
-declare var i18n:i18n.I18n;
+declare var i18n: i18n.I18n;
 
 export = i18n;

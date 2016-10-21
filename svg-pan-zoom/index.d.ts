@@ -15,10 +15,10 @@ declare namespace SvgPanZoom {
         maxZoom?: number; // Maximum Zoom level
         fit?: boolean; // enable or disable viewport fit in SVG (default true)
         center?: boolean; // enable or disable viewport centering in SVG (default true)
-        beforeZoom?: (scale:number) => void;
-        onZoom?: (scale:number) => void;
-        beforePan?: (point:IPoint) => void;
-        onPan?: (x:number, y:number) => void;
+        beforeZoom?: (scale: number) => void;
+        onZoom?: (scale: number) => void;
+        beforePan?: (point: IPoint) => void;
+        onPan?: (x: number, y: number) => void;
         refreshRate?: any; // in hz
     }
 
@@ -34,7 +34,7 @@ declare namespace SvgPanZoom {
          * @param svg selector of the tag on which it is to be applied.
          * @param options provides customization options at the initialization of the object.
          */
-        (svg:any, options?:OptionConfig):  ISvgPanZoom;
+        (svg: any, options?: OptionConfig):  ISvgPanZoom;
 
         /**
          * Enables Panning on svg element
@@ -53,9 +53,9 @@ declare namespace SvgPanZoom {
         isPanEnabled(): boolean;
 
 
-        setBeforePan(fn: (point:IPoint)=> void): void;
+        setBeforePan(fn: (point: IPoint) => void): void;
 
-        setOnPan(fn: (x:number, y:number)=> void): void;
+        setOnPan(fn: (x: number, y: number) => void): void;
 
         enableZoom(): void;
 
@@ -83,7 +83,7 @@ declare namespace SvgPanZoom {
 
         setOnZoom(fn: (scale: number) => void): void;
 
-        zoom(scale: number):void;
+        zoom(scale: number): void;
 
         zoomIn(): void;
 
@@ -142,10 +142,10 @@ declare namespace SvgPanZoom {
          */
         getPan(): IPoint;
 
-        zoomAtPoint(scale:number, point:IPoint): boolean;
+        zoomAtPoint(scale: number, point: IPoint): boolean;
 
-        zoomAtPointBy(scale:number, point:IPoint): boolean;
+        zoomAtPointBy(scale: number, point: IPoint): boolean;
     }
 }
 
-declare var svgPanZoom:SvgPanZoom.ISvgPanZoom;
+declare var svgPanZoom: SvgPanZoom.ISvgPanZoom;

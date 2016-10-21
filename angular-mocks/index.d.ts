@@ -32,13 +32,13 @@ declare module 'angular' {
     // see https://docs.angularjs.org/api/ngMock/function/angular.mock.dump
     dump(obj: any): string;
 
-    inject: IInjectStatic
+    inject: IInjectStatic;
 
     // see https://docs.angularjs.org/api/ngMock/function/angular.mock.module
     module: {
       (...modules: any[]): any;
       sharedInjector(): void;
-    }
+    };
 
     // see https://docs.angularjs.org/api/ngMock/type/angular.mock.TzDate
     TzDate(offset: number, timestamp: number): Date;
@@ -301,7 +301,7 @@ declare module 'angular' {
     whenPUT(url: string | RegExp | ((url: string) => boolean), data?: string | RegExp | Object | ((data: string) => boolean), headers?: Object | ((object: Object) => boolean), keys?: Object[]): mock.IRequestHandler;
   }
 
-  export module mock {
+  export namespace mock {
     // returned interface by the the mocked HttpBackendService expect/when methods
     interface IRequestHandler {
 

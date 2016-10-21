@@ -38,7 +38,7 @@ declare namespace gapi {
     /**
      * Pragmatically initialize gapi class member.
      */
-    export function load(object: string, fn: any) : any;
+    export function load(object: string, fn: any): any;
 
 }
 
@@ -133,7 +133,7 @@ declare namespace gapi.client {
     * @param version The version of the API to load.
     * @return promise The promise that get's resolved after the request is finished.
     */
-    export function load(name: string, version: string): Promise<void>
+    export function load(name: string, version: string): Promise<void>;
 
     /**
     * Loads the client library interface to a particular API. The new API interface will be in the form gapi.client.api.collection.method.
@@ -208,24 +208,24 @@ declare namespace gapi.client {
                 status: number;
                 statusText: string;
             }
-            ) => any):void;
+            ) => any): void;
             /**
          * HttpRequest supports promises.
          */
-        then(success:(response:{
-                result:T;
-                body:string;
+        then(success: (response: {
+                result: T;
+                body: string;
                 headers?: any[];
                 status?: number;
                 statusText?: string
-            })=>void,
-            failure:(response:{
-                result:T;
-                body:string;
+            }) => void,
+            failure: (response: {
+                result: T;
+                body: string;
                 headers?: any[];
                 status?: number;
                 statusText?: string
-            })=>void): void;
+            }) => void): void;
     }
     /**
      * Represents an HTTP Batch operation. Individual HTTP requests are added with the add method and the batch is executed using execute.
@@ -251,7 +251,7 @@ declare namespace gapi.client {
              */
             rawBatchResponse: any
             ) => any
-        }):void;
+        }): void;
         /**
          * Executes all requests in the batch. The supplied callback is executed on success or failure.
          * @param callback The callback to execute when the batch returns.
@@ -265,7 +265,7 @@ declare namespace gapi.client {
              * is the same response, but as an unparsed JSON-string.
              */
             rawBatchResponse: string
-            ) => any):void;
+            ) => any): void;
     }
 
     /**
@@ -286,7 +286,7 @@ declare namespace gapi.client {
              * is the same as jsonResp, except it is a raw string that has not been parsed. It is typically used when the response is not JSON.
              */
             rawResp: string
-            ) => void ):void;
+            ) => void ): void;
     }
 
 }

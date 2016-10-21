@@ -50,7 +50,7 @@ describe('EventEmitter', function tests() {
 
                 done();
             }, context);
-            
+
             e.emit('foo', 'bar');
         });
 
@@ -178,7 +178,7 @@ describe('EventEmitter', function tests() {
     describe('EventEmitter#listeners', function () {
         it('returns an empty array if no listeners are specified', function () {
             var e = new EventEmitter();
-            
+
             assert.strictEqual(e.listeners('foo') instanceof Array, true);
             assert.strictEqual(e.listeners('foo').length, 0);
         });
@@ -203,7 +203,7 @@ describe('EventEmitter', function tests() {
             e.addListener('foo', foo);
 
             assert.strictEqual(e.listeners('foo')[0], foo);
-            
+
             e.listeners('foo').length = 0;
             assert.strictEqual(e.listeners('foo')[0], foo);
         });
@@ -281,7 +281,7 @@ describe('EventEmitter', function tests() {
                 assert.strictEqual(bar, 'bar');
                 done();
             }, context);
-            
+
             e.emit('foo', 'bar');
         });
     });
@@ -304,7 +304,7 @@ describe('EventEmitter', function tests() {
 
             bar2.remove();
             assert.strictEqual(e.listeners('bar').length, 1);
-            
+
             bar1.remove();
             assert.strictEqual(e.listeners('bar').length, 0);
         });

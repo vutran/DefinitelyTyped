@@ -39,10 +39,10 @@ declare class Dexie {
     static shallowClone(obj: Object): Object;
 
     static deepClone(obj: Object): Object;
-    
-    static delete(databaseName : string): Dexie.Promise<void>;
-    
-    static exists(databaseName : string): Dexie.Promise<boolean>;
+
+    static delete(databaseName: string): Dexie.Promise<void>;
+
+    static exists(databaseName: string): Dexie.Promise<boolean>;
 
     version(versionNumber: Number): Dexie.Version
 
@@ -54,7 +54,7 @@ declare class Dexie {
         populate: Dexie.DexieEvent;
         blocked: Dexie.DexieEvent;
         versionchange: Dexie.DexieVersionChangeEvent;
-    }
+    };
 
     open(): Dexie.Promise<Dexie>;
 
@@ -84,7 +84,7 @@ declare class Dexie {
 
     delete(): Dexie.Promise<void>;
 
-    exists(name : string) : Dexie.Promise<boolean>;
+    exists(name: string): Dexie.Promise<boolean>;
 
     isOpen(): boolean;
 
@@ -147,7 +147,7 @@ declare namespace Dexie {
         var on: {
             (eventName: string, subscriber: (...args: any[]) => any): void;
             error: DexieErrorEvent;
-        }
+        };
     }
 
 
@@ -168,7 +168,7 @@ declare namespace Dexie {
             complete: DexieEvent;
             abort: DexieEvent;
             error: DexieEvent;
-        }
+        };
         abort(): void;
         table(tableName: string): Table<any, any>;
         table<T>(tableName: string): Table<T, any>;
@@ -208,7 +208,7 @@ declare namespace Dexie {
             reading: DexieEvent;
             updating: DexieEvent;
             deleting: DexieEvent;
-        }
+        };
 
         get(key: Key): Promise<T>;
         where(index: string): WhereClause<T, Key>;

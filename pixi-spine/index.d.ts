@@ -8,7 +8,7 @@ import * as PIXI from 'pixi.js';
 
 declare module 'pixi.js' {
 
-    export module spine {
+    export namespace spine {
 
         export interface Timeline {
 
@@ -135,7 +135,7 @@ declare module 'pixi.js' {
             m10: number;
             m11: number;
             worldY: number;
-            worldRotation: number;;
+            worldRotation: number;
             worldScaleX: number;
             worldScaleY: number;
             worldFlipX: boolean;
@@ -349,9 +349,9 @@ declare module 'pixi.js' {
             name: string;
             type: number;
             vertices: number[];
-            uvs: number[]
-            regionUVs: number[]
-            triangles: number[]
+            uvs: number[];
+            regionUVs: number[];
+            triangles: number[];
             hullLength: number;
             r: number;
             g: number;
@@ -385,7 +385,7 @@ declare module 'pixi.js' {
 
             name: string;
             offset: number[];
-            uvs: number[]
+            uvs: number[];
             type: number;
             x: number;
             y: number;

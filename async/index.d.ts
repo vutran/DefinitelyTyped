@@ -36,7 +36,7 @@ interface AsyncQueue<T> {
     empty: () => any;
     drain: () => any;
     paused: boolean;
-    pause(): void
+    pause(): void;
     resume(): void;
     kill(): void;
     workersList(): {
@@ -76,8 +76,8 @@ interface AsyncPriorityQueue<T> {
 interface AsyncCargo {
     length(): number;
     payload: number;
-    push(task: any, callback? : Function): void;
-    push(task: any[], callback? : Function): void;
+    push(task: any, callback?: Function): void;
+    push(task: any[], callback?: Function): void;
     saturated(): void;
     empty(): void;
     drain(): void;
@@ -202,10 +202,10 @@ interface Async {
 
     transform<T, R>(arr: T[], iteratee: (acc: R[], item: T, key: string, callback: (error?: Error) => void) => void): void;
     transform<T, R>(arr: T[], acc: R[], iteratee: (acc: R[], item: T, key: string, callback: (error?: Error) => void) => void): void;
-    transform<T, R>(arr: {[key: string] : T}, iteratee: (acc: {[key: string] : R}, item: T, key: string, callback: (error?: Error) => void) => void): void;
-    transform<T, R>(arr: {[key: string] : T}, acc: {[key: string] : R}, iteratee: (acc: {[key: string] : R}, item: T, key: string, callback: (error?: Error) => void) => void): void;
+    transform<T, R>(arr: {[key: string]: T}, iteratee: (acc: {[key: string]: R}, item: T, key: string, callback: (error?: Error) => void) => void): void;
+    transform<T, R>(arr: {[key: string]: T}, acc: {[key: string]: R}, iteratee: (acc: {[key: string]: R}, item: T, key: string, callback: (error?: Error) => void) => void): void;
 
-    race<T>(tasks: (AsyncFunction<T>)[], callback: AsyncResultCallback<T>) : void;
+    race<T>(tasks: (AsyncFunction<T>)[], callback: AsyncResultCallback<T>): void;
 
     // Utils
     memoize(fn: Function, hasher?: Function): Function;
