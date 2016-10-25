@@ -11,7 +11,7 @@ declare namespace AdazzleReactDataGrid {
          * Gets the data to render in each row. Required.
          * Can be an array or a function that takes an index and returns an object.
          */
-        rowGetter: Array<Object> | ((rowIdx: number) => Object);
+        rowGetter: Object[] | ((rowIdx: number) => Object);
         /**
          * The total number of rows to render. Required.
          */
@@ -141,7 +141,7 @@ declare namespace AdazzleReactDataGrid {
          * Called when a row is selected.
          * @param rows The (complete) current selection of rows.
          */
-        onRowSelect?: (rows: Array<Object>) => void;
+        onRowSelect?: (rows: Object[]) => void;
         /**
          * A property that's unique to every row.
          * This property is required to enable row selection.

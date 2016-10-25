@@ -1312,15 +1312,9 @@ declare module "graphql/type/definition" {
         toString(): string;
     }
 
-<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
     export interface GraphQLInterfaceTypeConfig {
         name: string,
         fields: Thunk<GraphQLFieldConfigMap<any>>,
-=======
-    interface GraphQLInterfaceTypeConfig {
-        name: string;
-        fields: Thunk<GraphQLFieldConfigMap<any>>;
->>>>>>> WIP
         /**
          * Optionally provide a custom type resolver function. If one is not provided,
          * the default implementation will call `isTypeOf` on each implementing
@@ -1365,15 +1359,9 @@ declare module "graphql/type/definition" {
         toString(): string;
     }
 
-<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
     export interface GraphQLUnionTypeConfig {
         name: string,
         types: Thunk<Array<GraphQLObjectType>>,
-=======
-    interface GraphQLUnionTypeConfig {
-        name: string;
-        types: Thunk<Array<GraphQLObjectType>>;
->>>>>>> WIP
         /**
          * Optionally provide a custom type resolver function. If one is not provided,
          * the default implementation will call `isTypeOf` on each implementing

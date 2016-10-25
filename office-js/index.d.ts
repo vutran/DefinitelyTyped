@@ -2398,21 +2398,21 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.1]
          */
-        formulas: Array<any[]>;
+        formulas: any[][];
         /**
          *
          * Represents the formula in A1-style notation, in the user's language and number-formatting locale.  For example, the English "=SUM(A1, 1.5)" formula would become "=SUMME(A1; 1,5)" in German.
          *
          * [Api set: ExcelApi 1.1]
          */
-        formulasLocal: Array<any[]>;
+        formulasLocal: any[][];
         /**
          *
          * Represents the formula in R1C1-style notation.
          *
          * [Api set: ExcelApi 1.2]
          */
-        formulasR1C1: Array<any[]>;
+        formulasR1C1: any[][];
         /**
          *
          * Represents if all cells of the current range are hidden.
@@ -2426,7 +2426,7 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.1]
          */
-        numberFormat: Array<any[]>;
+        numberFormat: any[][];
         /**
          *
          * Returns the total number of rows in the range. Read-only.
@@ -2454,21 +2454,21 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.1]
          */
-        text: Array<any[]>;
+        text: any[][];
         /**
          *
          * Represents the type of data of each cell. Read-only.
          *
          * [Api set: ExcelApi 1.1]
          */
-        valueTypes: Array<string[]>;
+        valueTypes: string[][];
         /**
          *
          * Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
          *
          * [Api set: ExcelApi 1.1]
          */
-        values: Array<any[]>;
+        values: any[][];
         /**
          *
          * Clear range values, format, fill, border, etc.
@@ -2732,28 +2732,28 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        formulas: Array<any[]>;
+        formulas: any[][];
         /**
          *
          * Represents the formula in A1-style notation, in the user's language and number-formatting locale.  For example, the English "=SUM(A1, 1.5)" formula would become "=SUMME(A1; 1,5)" in German.
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        formulasLocal: Array<any[]>;
+        formulasLocal: any[][];
         /**
          *
          * Represents the formula in R1C1-style notation.
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        formulasR1C1: Array<any[]>;
+        formulasR1C1: any[][];
         /**
          *
          * Represents Excel's number format code for the given cell. Read-only.
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        numberFormat: Array<any[]>;
+        numberFormat: any[][];
         /**
          *
          * Returns the number of visible rows. Read-only.
@@ -2767,21 +2767,21 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        text: Array<any[]>;
+        text: any[][];
         /**
          *
          * Represents the type of data of each cell. Read-only.
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        valueTypes: Array<string[]>;
+        valueTypes: string[][];
         /**
          *
          * Represents the raw values of the specified range view. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        values: Array<any[]>;
+        values: any[][];
         /**
          *
          * Gets the parent range associated with the current RangeView.
@@ -3396,7 +3396,7 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.1]
          */
-        values: Array<any[]>;
+        values: any[][];
         /**
          *
          * Deletes the column from the table.
@@ -3501,7 +3501,7 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.1]
          */
-        values: Array<any[]>;
+        values: any[][];
         /**
          *
          * Deletes the row from the table.
@@ -9734,7 +9734,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<string[]>): Word.Table;
+        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: string[][]): Word.Table;
         /**
          *
          * Inserts text into the body at the specified location. The insertLocation value can be 'Replace', 'Start' or 'End'.
@@ -10082,7 +10082,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<string[]>): Word.Table;
+        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: string[][]): Word.Table;
         /**
          *
          * Inserts text into the content control at the specified location. The insertLocation value can be 'Replace', 'Start' or 'End'.
@@ -11100,7 +11100,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<string[]>): Word.Table;
+        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: string[][]): Word.Table;
         /**
          *
          * Inserts text into the paragraph at the specified location. The insertLocation value can be 'Replace', 'Start' or 'End'.
@@ -11475,7 +11475,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<string[]>): Word.Table;
+        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: string[][]): Word.Table;
         /**
          *
          * Inserts text at the specified location. The insertLocation value can be 'Replace', 'Start', 'End', 'Before' or 'After'.
@@ -11959,7 +11959,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        values: Array<string[]>;
+        values: string[][];
         /**
          *
          * Gets and sets the vertical alignment of every cell in the table.
@@ -11984,7 +11984,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        addColumns(insertLocation: string, columnCount: number, values?: Array<string[]>): void;
+        addColumns(insertLocation: string, columnCount: number, values?: string[][]): void;
         /**
          *
          * Adds rows to the start or end of the table, using the first or last existing row as a template. The string values, if specified, are set in the newly inserted rows.
@@ -11995,7 +11995,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        addRows(insertLocation: string, rowCount: number, values?: Array<string[]>): void;
+        addRows(insertLocation: string, rowCount: number, values?: string[][]): void;
         /**
          *
          * Autofits the table columns to the width of their contents.
@@ -12114,7 +12114,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<string[]>): Word.Table;
+        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: string[][]): Word.Table;
         /**
          *
          * Merges the cells bounded inclusively by a first and last cell.
@@ -12346,7 +12346,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertRows(insertLocation: string, rowCount: number, values?: Array<string[]>): void;
+        insertRows(insertLocation: string, rowCount: number, values?: string[][]): void;
         /**
          *
          * Merges the row into one cell.
@@ -12573,7 +12573,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertColumns(insertLocation: string, columnCount: number, values?: Array<string[]>): void;
+        insertColumns(insertLocation: string, columnCount: number, values?: string[][]): void;
         /**
          *
          * Inserts rows above or below the cell, using the cell's row as a template. The string values, if specified, are set in the newly inserted rows.
@@ -12584,7 +12584,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertRows(insertLocation: string, rowCount: number, values?: Array<string[]>): void;
+        insertRows(insertLocation: string, rowCount: number, values?: string[][]): void;
         /**
          *
          * Adds columns to the left or right of the cell, using the existing column as a template. The string values, if specified, are set in the newly inserted rows.
@@ -14882,7 +14882,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        appendTable(rowCount: number, columnCount: number, values?: Array<string[]>): OneNote.Table;
+        appendTable(rowCount: number, columnCount: number, values?: string[][]): OneNote.Table;
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
@@ -15042,7 +15042,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        insertTableAsSibling(insertLocation: string, rowCount: number, columnCount: number, values?: Array<string[]>): OneNote.Table;
+        insertTableAsSibling(insertLocation: string, rowCount: number, columnCount: number, values?: string[][]): OneNote.Table;
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
@@ -15537,7 +15537,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        appendTable(rowCount: number, columnCount: number, values?: Array<string[]>): OneNote.Table;
+        appendTable(rowCount: number, columnCount: number, values?: string[][]): OneNote.Table;
         /**
          *
          * Clears the contents of the cell.
