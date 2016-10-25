@@ -160,7 +160,7 @@ declare namespace OfficeExtension {
         /** Error code string, such as "InvalidArgument". */
         code: string;
         /** Trace messages (if any) that were added via a "context.trace()" invocation before calling "context.sync()". If there was an error, this contains all trace messages that were executed before the error occurred. These messages can help you monitor the program execution sequence and detect the case of the error. */
-        traceMessages: Array<string>;
+        traceMessages: string[];
         /** Debug info, if applicable. The ".errorLocation" property can describe the object and method or property that caused the error. */
         debugInfo: {
             /** If applicable, will return the object type and the name of the method or property that caused the error. */
@@ -2398,21 +2398,21 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.1]
          */
-        formulas: Array<Array<any>>;
+        formulas: Array<any[]>;
         /**
          *
          * Represents the formula in A1-style notation, in the user's language and number-formatting locale.  For example, the English "=SUM(A1, 1.5)" formula would become "=SUMME(A1; 1,5)" in German.
          *
          * [Api set: ExcelApi 1.1]
          */
-        formulasLocal: Array<Array<any>>;
+        formulasLocal: Array<any[]>;
         /**
          *
          * Represents the formula in R1C1-style notation.
          *
          * [Api set: ExcelApi 1.2]
          */
-        formulasR1C1: Array<Array<any>>;
+        formulasR1C1: Array<any[]>;
         /**
          *
          * Represents if all cells of the current range are hidden.
@@ -2426,7 +2426,7 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.1]
          */
-        numberFormat: Array<Array<any>>;
+        numberFormat: Array<any[]>;
         /**
          *
          * Returns the total number of rows in the range. Read-only.
@@ -2454,21 +2454,21 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.1]
          */
-        text: Array<Array<any>>;
+        text: Array<any[]>;
         /**
          *
          * Represents the type of data of each cell. Read-only.
          *
          * [Api set: ExcelApi 1.1]
          */
-        valueTypes: Array<Array<string>>;
+        valueTypes: Array<string[]>;
         /**
          *
          * Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
          *
          * [Api set: ExcelApi 1.1]
          */
-        values: Array<Array<any>>;
+        values: Array<any[]>;
         /**
          *
          * Clear range values, format, fill, border, etc.
@@ -2732,28 +2732,28 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        formulas: Array<Array<any>>;
+        formulas: Array<any[]>;
         /**
          *
          * Represents the formula in A1-style notation, in the user's language and number-formatting locale.  For example, the English "=SUM(A1, 1.5)" formula would become "=SUMME(A1; 1,5)" in German.
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        formulasLocal: Array<Array<any>>;
+        formulasLocal: Array<any[]>;
         /**
          *
          * Represents the formula in R1C1-style notation.
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        formulasR1C1: Array<Array<any>>;
+        formulasR1C1: Array<any[]>;
         /**
          *
          * Represents Excel's number format code for the given cell. Read-only.
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        numberFormat: Array<Array<any>>;
+        numberFormat: Array<any[]>;
         /**
          *
          * Returns the number of visible rows. Read-only.
@@ -2767,21 +2767,21 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        text: Array<Array<any>>;
+        text: Array<any[]>;
         /**
          *
          * Represents the type of data of each cell. Read-only.
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        valueTypes: Array<Array<string>>;
+        valueTypes: Array<string[]>;
         /**
          *
          * Represents the raw values of the specified range view. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
          *
          * [Api set: ExcelApi 1.3 (Preview)]
          */
-        values: Array<Array<any>>;
+        values: Array<any[]>;
         /**
          *
          * Gets the parent range associated with the current RangeView.
@@ -3396,7 +3396,7 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.1]
          */
-        values: Array<Array<any>>;
+        values: Array<any[]>;
         /**
          *
          * Deletes the column from the table.
@@ -3501,7 +3501,7 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.1]
          */
-        values: Array<Array<any>>;
+        values: Array<any[]>;
         /**
          *
          * Deletes the row from the table.
@@ -9734,7 +9734,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<Array<string>>): Word.Table;
+        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<string[]>): Word.Table;
         /**
          *
          * Inserts text into the body at the specified location. The insertLocation value can be 'Replace', 'Start' or 'End'.
@@ -10010,7 +10010,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        getTextRanges(punctuationMarks: Array<string>, trimSpacing?: boolean): Word.RangeCollection;
+        getTextRanges(punctuationMarks: string[], trimSpacing?: boolean): Word.RangeCollection;
         /**
          *
          * Inserts a break at the specified location in the main document. The insertLocation value can be 'Start', 'End', 'Before' or 'After'. This method cannot be used with 'RichTextTable', 'RichTextTableRow' and 'RichTextTableCell' content controls.
@@ -10082,7 +10082,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<Array<string>>): Word.Table;
+        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<string[]>): Word.Table;
         /**
          *
          * Inserts text into the content control at the specified location. The insertLocation value can be 'Replace', 'Start' or 'End'.
@@ -10132,7 +10132,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        split(delimiters: Array<string>, multiParagraphs?: boolean, trimDelimiters?: boolean, trimSpacing?: boolean): Word.RangeCollection;
+        split(delimiters: string[], multiParagraphs?: boolean, trimDelimiters?: boolean, trimSpacing?: boolean): Word.RangeCollection;
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
@@ -10192,7 +10192,7 @@ declare namespace Word {
          *
          * [Api set: WordApiDesktop 1.3 Beta]
          */
-        getByTypes(types: Array<string>): Word.ContentControlCollection;
+        getByTypes(types: string[]): Word.ContentControlCollection;
         /**
          *
          * Gets a content control by its index in the collection.
@@ -10713,7 +10713,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        levelTypes: Array<string>;
+        levelTypes: string[];
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
@@ -11021,7 +11021,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        getTextRanges(punctuationMarks: Array<string>, trimSpacing?: boolean): Word.RangeCollection;
+        getTextRanges(punctuationMarks: string[], trimSpacing?: boolean): Word.RangeCollection;
         /**
          *
          * Inserts a break at the specified location in the main document. The insertLocation value can be 'Before' or 'After'.
@@ -11100,7 +11100,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<Array<string>>): Word.Table;
+        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<string[]>): Word.Table;
         /**
          *
          * Inserts text into the paragraph at the specified location. The insertLocation value can be 'Replace', 'Start' or 'End'.
@@ -11149,7 +11149,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        split(delimiters: Array<string>, trimDelimiters?: boolean, trimSpacing?: boolean): Word.RangeCollection;
+        split(delimiters: string[], trimDelimiters?: boolean, trimSpacing?: boolean): Word.RangeCollection;
         /**
          *
          * Uses the paragraph to start a new list.
@@ -11370,7 +11370,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        getNextTextRange(punctuationMarks: Array<string>, trimSpacing?: boolean): Word.Range;
+        getNextTextRange(punctuationMarks: string[], trimSpacing?: boolean): Word.Range;
         /**
          *
          * Gets the OOXML representation of the range object.
@@ -11396,7 +11396,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        getTextRanges(punctuationMarks: Array<string>, trimSpacing?: boolean): Word.RangeCollection;
+        getTextRanges(punctuationMarks: string[], trimSpacing?: boolean): Word.RangeCollection;
         /**
          *
          * Inserts a break at the specified location in the main document. The insertLocation value can be 'Replace', 'Before' or 'After'.
@@ -11475,7 +11475,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<Array<string>>): Word.Table;
+        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<string[]>): Word.Table;
         /**
          *
          * Inserts text at the specified location. The insertLocation value can be 'Replace', 'Start', 'End', 'Before' or 'After'.
@@ -11534,7 +11534,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        split(delimiters: Array<string>, multiParagraphs?: boolean, trimDelimiters?: boolean, trimSpacing?: boolean): Word.RangeCollection;
+        split(delimiters: string[], multiParagraphs?: boolean, trimDelimiters?: boolean, trimSpacing?: boolean): Word.RangeCollection;
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
@@ -11959,7 +11959,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        values: Array<Array<string>>;
+        values: Array<string[]>;
         /**
          *
          * Gets and sets the vertical alignment of every cell in the table.
@@ -11984,7 +11984,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        addColumns(insertLocation: string, columnCount: number, values?: Array<Array<string>>): void;
+        addColumns(insertLocation: string, columnCount: number, values?: Array<string[]>): void;
         /**
          *
          * Adds rows to the start or end of the table, using the first or last existing row as a template. The string values, if specified, are set in the newly inserted rows.
@@ -11995,7 +11995,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        addRows(insertLocation: string, rowCount: number, values?: Array<Array<string>>): void;
+        addRows(insertLocation: string, rowCount: number, values?: Array<string[]>): void;
         /**
          *
          * Autofits the table columns to the width of their contents.
@@ -12114,7 +12114,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<Array<string>>): Word.Table;
+        insertTable(rowCount: number, columnCount: number, insertLocation: string, values?: Array<string[]>): Word.Table;
         /**
          *
          * Merges the cells bounded inclusively by a first and last cell.
@@ -12305,7 +12305,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        values: Array<string>;
+        values: string[];
         /**
          *
          * Gets and sets the vertical alignment of the cells in the row.
@@ -12346,7 +12346,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertRows(insertLocation: string, rowCount: number, values?: Array<Array<string>>): void;
+        insertRows(insertLocation: string, rowCount: number, values?: Array<string[]>): void;
         /**
          *
          * Merges the row into one cell.
@@ -12573,7 +12573,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertColumns(insertLocation: string, columnCount: number, values?: Array<Array<string>>): void;
+        insertColumns(insertLocation: string, columnCount: number, values?: Array<string[]>): void;
         /**
          *
          * Inserts rows above or below the cell, using the cell's row as a template. The string values, if specified, are set in the newly inserted rows.
@@ -12584,7 +12584,7 @@ declare namespace Word {
          *
          * [Api set: WordApi 1.3 Beta]
          */
-        insertRows(insertLocation: string, rowCount: number, values?: Array<Array<string>>): void;
+        insertRows(insertLocation: string, rowCount: number, values?: Array<string[]>): void;
         /**
          *
          * Adds columns to the left or right of the cell, using the existing column as a template. The string values, if specified, are set in the newly inserted rows.
@@ -13859,7 +13859,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        wordAlternates: Array<string>;
+        wordAlternates: string[];
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
@@ -14054,7 +14054,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi]
          */
-        wordAlternates: Array<string>;
+        wordAlternates: string[];
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
@@ -14882,7 +14882,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        appendTable(rowCount: number, columnCount: number, values?: Array<Array<string>>): OneNote.Table;
+        appendTable(rowCount: number, columnCount: number, values?: Array<string[]>): OneNote.Table;
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
@@ -15042,7 +15042,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        insertTableAsSibling(insertLocation: string, rowCount: number, columnCount: number, values?: Array<Array<string>>): OneNote.Table;
+        insertTableAsSibling(insertLocation: string, rowCount: number, columnCount: number, values?: Array<string[]>): OneNote.Table;
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
@@ -15276,7 +15276,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        appendColumn(values?: Array<string>): void;
+        appendColumn(values?: string[]): void;
         /**
          *
          * Adds a row to the end of the table. Values, if specified, are set in the new row. Otherwise the row is empty.
@@ -15285,7 +15285,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        appendRow(values?: Array<string>): OneNote.TableRow;
+        appendRow(values?: string[]): OneNote.TableRow;
         /**
          *
          * Clears the contents of the table.
@@ -15312,7 +15312,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        insertColumn(index: number, values?: Array<string>): void;
+        insertColumn(index: number, values?: string[]): void;
         /**
          *
          * Inserts a row at the given index in the table. Values, if specified, are set in the new row. Otherwise the row is empty.
@@ -15322,7 +15322,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        insertRow(index: number, values?: Array<string>): OneNote.TableRow;
+        insertRow(index: number, values?: string[]): OneNote.TableRow;
         setShadingColor(colorCode: string): void;
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
@@ -15393,7 +15393,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        insertRowAsSibling(insertLocation: string, values?: Array<string>): OneNote.TableRow;
+        insertRowAsSibling(insertLocation: string, values?: string[]): OneNote.TableRow;
         setShadingColor(colorCode: string): void;
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
@@ -15537,7 +15537,7 @@ declare namespace OneNote {
          *
          * [Api set: OneNoteApi 1.1]
          */
-        appendTable(rowCount: number, columnCount: number, values?: Array<Array<string>>): OneNote.Table;
+        appendTable(rowCount: number, columnCount: number, values?: Array<string[]>): OneNote.Table;
         /**
          *
          * Clears the contents of the cell.

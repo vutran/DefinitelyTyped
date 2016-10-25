@@ -31,7 +31,7 @@ declare namespace Matter {
     }
 
     interface IChamfer {
-        radius?: number | Array<number>;
+        radius?: number | number[];
         quality?: number;
         qualityMin?: number;
         qualityMax?: number;
@@ -2207,7 +2207,7 @@ declare namespace Matter {
          * @param {number} [rayWidth]
          * @return {object[]} Collisions
          */
-        static ray(bodies: Array<Body>, startPoint: Vector, endPoint: Vector, rayWidth?: number): Array<any>;
+        static ray(bodies: Array<Body>, startPoint: Vector, endPoint: Vector, rayWidth?: number): any[];
 
         /**
          * Returns all bodies whose bounds are inside (or outside if set) the given set of bounds, from the given set of bodies.
@@ -2821,7 +2821,7 @@ declare namespace Matter {
          * @param {number} qualityMin
          * @param {number} qualityMax
          */
-        static chamfer(vertices: Array<Vector>, radius: number | Array<number>, quality: number, qualityMin: number, qualityMax: number): void;
+        static chamfer(vertices: Array<Vector>, radius: number | number[], quality: number, qualityMin: number, qualityMax: number): void;
 
 
         /**

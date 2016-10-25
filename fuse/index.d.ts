@@ -16,8 +16,8 @@ declare namespace fuse {
 		searchFn?: any;
 		sortFn?: (a: {score: number}, b: {score: number}) => number;
 		getFn?: (obj: any, path: string) => any;
-		keys?: string[] | { name: string; weight: number} [];
-        	verbose?: boolean;
+		keys?: string[] | { name: string; weight: number}[];
+       	verbose?: boolean;
 	}
 
 	interface ISearchOptions {

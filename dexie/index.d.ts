@@ -24,11 +24,11 @@ declare class Dexie {
     static addons: Array<(db: Dexie) => void>;
     static version: number;
 
-    static getDatabaseNames(): Dexie.Promise<Array<string>>;
+    static getDatabaseNames(): Dexie.Promise<string[]>;
 
-    static getDatabaseNames<U>(onFulfilled: (value: Array<string>) => Thenable<U>): Dexie.Promise<U>;
+    static getDatabaseNames<U>(onFulfilled: (value: string[]) => Thenable<U>): Dexie.Promise<U>;
 
-    static getDatabaseNames<U>(onFulfilled: (value: Array<string>) => U): Dexie.Promise<U>;
+    static getDatabaseNames<U>(onFulfilled: (value: string[]) => U): Dexie.Promise<U>;
 
     static getByKeyPath(obj: Object, keyPath: string): any;
 
@@ -162,7 +162,7 @@ declare namespace Dexie {
         mode: string;
         idbtrans: IDBTransaction;
         tables: { [type: string]: Table<any, any> };
-        storeNames: Array<string>;
+        storeNames: string[];
         on: {
             (eventName: string, subscriber: () => any): void;
             complete: DexieEvent;
@@ -310,7 +310,7 @@ declare namespace Dexie {
 
     interface IndexSpec {
         name: string;
-        keyPath: any; // string | Array<string>
+        keyPath: any; // string | string[]
         unique: boolean;
         multi: boolean;
         auto: boolean;

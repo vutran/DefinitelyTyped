@@ -11,7 +11,7 @@ declare module "usb" {
     public timeout: number;
     public busNumber: number;
     public deviceAddress: number;
-    public portNumbers: Array<number>;
+    public portNumbers: number[];
     public deviceDescriptor: DeviceDescriptor;
     public configDescriptor: ConfigDescriptor;
     public interfaces: Array<Interface>;

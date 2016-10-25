@@ -1814,7 +1814,7 @@ declare module "graphql/validation/validate" {
     function validate(
         schema: GraphQLSchema,
         ast: Document,
-        rules?: Array<any>
+        rules?: any[]
     ): Array<GraphQLError>;
 
     /**
@@ -1827,7 +1827,7 @@ declare module "graphql/validation/validate" {
         schema: GraphQLSchema,
         typeInfo: TypeInfo,
         documentAST: Document,
-        rules: Array<any>
+        rules: any[]
     ): Array<GraphQLError>;
 
     type HasSelectionSet = OperationDefinition | FragmentDefinition;
@@ -2063,7 +2063,7 @@ declare module "graphql/error/GraphQLError" {
          * An array of character offsets within the source GraphQL document
          * which correspond to this error.
          */
-        positions: Array<number> | void;
+        positions: number[] | void;
 
         /**
          * The original error thrown from a field resolver during execution.
