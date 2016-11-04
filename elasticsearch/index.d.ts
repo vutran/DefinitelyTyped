@@ -510,7 +510,7 @@ declare namespace Elasticsearch {
                 inline: string;
                 lang: string;
             }
-        }
+        };
     }
 
     export interface ReindexResponse {
@@ -522,7 +522,7 @@ declare namespace Elasticsearch {
         retries: {
             bulk: number;
             search: number;
-        }
+        };
         throttled_millis: number;
         failures: any[];
     }
@@ -1040,7 +1040,7 @@ declare namespace Elasticsearch {
         tokenizer?: string;
         explain?: boolean;
         attributes?: NameList;
-        format?: ""
+        format?: "";
     }
 
     export interface IndicesClearCacheParams extends GenericParams {
@@ -1337,7 +1337,7 @@ declare namespace Elasticsearch {
         masterTimeout?: DateLike;
         body: {
             actions: IndicesUpdateAliasesParamsAction[];
-        }
+        };
     }
 
     export interface IndicesUpdateAliasesParamsAction {
@@ -1353,7 +1353,7 @@ declare namespace Elasticsearch {
         };
         remove_index?: {
             index: string;
-        }
+        };
     }
 
     export interface IndicesUpgradeParams extends GenericParams {

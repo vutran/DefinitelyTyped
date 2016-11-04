@@ -12,8 +12,8 @@ declare namespace createHttpError {
         statusCode: number;
         expose: boolean;
     }
-                
-      type HttpErrorConstructor = new(msg?: string) => HttpError;
+
+    type HttpErrorConstructor = new(msg?: string) => HttpError;
 
     interface CreateHttpError {
         // See https://github.com/Microsoft/TypeScript/issues/227#issuecomment-50092674

@@ -1099,7 +1099,7 @@ declare module "graphql/type/definition" {
         GraphQLEnumType |
         GraphQLInputObjectType;
 
-    export function getNamedType(type: GraphQLType): GraphQLNamedType
+    export function getNamedType(type: GraphQLType): GraphQLNamedType;
 
     /**
      * Used while defining GraphQL types to allow for circular references in
@@ -1313,8 +1313,8 @@ declare module "graphql/type/definition" {
     }
 
     export interface GraphQLInterfaceTypeConfig {
-        name: string,
-        fields: Thunk<GraphQLFieldConfigMap<any>>,
+        name: string;
+        fields: Thunk<GraphQLFieldConfigMap<any>>;
         /**
          * Optionally provide a custom type resolver function. If one is not provided,
          * the default implementation will call `isTypeOf` on each implementing
@@ -1360,8 +1360,8 @@ declare module "graphql/type/definition" {
     }
 
     export interface GraphQLUnionTypeConfig {
-        name: string,
-        types: Thunk<Array<GraphQLObjectType>>,
+        name: string;
+        types: Thunk<Array<GraphQLObjectType>>;
         /**
          * Optionally provide a custom type resolver function. If one is not provided,
          * the default implementation will call `isTypeOf` on each implementing
@@ -2190,7 +2190,7 @@ declare module "graphql/utilities/astFromValue" {
     export function astFromValue(
         value: any,
         type: GraphQLInputType
-    ): Value // Warning: there is a code in bottom: throw new TypeError
+    ): Value; // Warning: there is a code in bottom: throw new TypeError
 }
 
 declare module "graphql/utilities/buildASTSchema" {
@@ -2398,7 +2398,7 @@ declare module "graphql/utilities/introspectionQuery" {
 
 
     interface IntrospectionQuery {
-        __schema: IntrospectionSchema
+        __schema: IntrospectionSchema;
     }
 
     interface IntrospectionSchema {
@@ -2463,7 +2463,7 @@ declare module "graphql/utilities/introspectionQuery" {
     type IntrospectionTypeRef =
         IntrospectionNamedTypeRef |
         IntrospectionListTypeRef |
-        IntrospectionNonNullTypeRef
+        IntrospectionNonNullTypeRef;
 
     interface IntrospectionNamedTypeRef {
         kind: string;
@@ -2522,7 +2522,7 @@ declare module "graphql/utilities/isValidJSValue" {
     function isValidJSValue(
         value: any,
         type: GraphQLInputType
-    ): Array<string>
+    ): Array<string>;
 }
 
 declare module "graphql/utilities/isValidLiteralValue" {
@@ -2539,7 +2539,7 @@ declare module "graphql/utilities/isValidLiteralValue" {
     function isValidLiteralValue(
         type: GraphQLInputType,
         valueAST: Value
-    ): Array<string>
+    ): Array<string>;
 }
 
 declare module "graphql/utilities/schemaPrinter" {
@@ -2558,7 +2558,7 @@ declare module "graphql/utilities/separateOperations" {
 
     function separateOperations(
         documentAST: Document
-    ): { [operationName: string]: Document }
+    ): { [operationName: string]: Document };
 }
 
 declare module "graphql/utilities/typeComparators" {
@@ -2610,7 +2610,7 @@ declare module "graphql/utilities/typeFromAST" {
     function typeFromAST(
         schema: GraphQLSchema,
         inputTypeAST: Type
-    ): GraphQLType
+    ): GraphQLType;
 }
 
 declare module "graphql/utilities/TypeInfo" {

@@ -2172,7 +2172,7 @@ declare namespace React {
         rx?: number | string;
         ry?: number | string;
         spreadMethod?: string;
-        stdDeviation?: number | string
+        stdDeviation?: number | string;
         stopColor?: string;
         stopOpacity?: number | string;
         stroke?: string;
