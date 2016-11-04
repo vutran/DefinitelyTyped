@@ -152,7 +152,7 @@ declare module "graphql/graphql" {
      */
     type GraphQLResult = {
         data?: Object;
-        errors?: Array<GraphQLError>;
+        errors?: GraphQLError[];
     };
 }
 
@@ -336,7 +336,7 @@ declare module "graphql/language/ast" {
     export type Document = {
         kind: 'Document';
         loc?: Location;
-        definitions: Array<Definition>;
+        definitions: Definition[];
     };
 
     export type Definition = OperationDefinition
@@ -348,8 +348,8 @@ declare module "graphql/language/ast" {
         loc?: Location;
         operation: OperationType;
         name?: Name;
-        variableDefinitions?: Array<VariableDefinition>;
-        directives?: Array<Directive>;
+        variableDefinitions?: VariableDefinition[];
+        directives?: Directive[];
         selectionSet: SelectionSet;
     };
 
@@ -373,7 +373,7 @@ declare module "graphql/language/ast" {
     export type SelectionSet = {
         kind: 'SelectionSet';
         loc?: Location;
-        selections: Array<Selection>;
+        selections: Selection[];
     };
 
     export type Selection = Field
@@ -385,8 +385,8 @@ declare module "graphql/language/ast" {
         loc?: Location;
         alias?: Name;
         name: Name;
-        arguments?: Array<Argument>;
-        directives?: Array<Directive>;
+        arguments?: Argument[];
+        directives?: Directive[];
         selectionSet?: SelectionSet;
     };
 
@@ -404,14 +404,14 @@ declare module "graphql/language/ast" {
         kind: 'FragmentSpread';
         loc?: Location;
         name: Name;
-        directives?: Array<Directive>;
+        directives?: Directive[];
     };
 
     export type InlineFragment = {
         kind: 'InlineFragment';
         loc?: Location;
         typeCondition?: NamedType;
-        directives?: Array<Directive>;
+        directives?: Directive[];
         selectionSet: SelectionSet;
     };
 
@@ -420,7 +420,7 @@ declare module "graphql/language/ast" {
         loc?: Location;
         name: Name;
         typeCondition: NamedType;
-        directives?: Array<Directive>;
+        directives?: Directive[];
         selectionSet: SelectionSet;
     };
 
@@ -469,13 +469,13 @@ declare module "graphql/language/ast" {
     export type ListValue = {
         kind: 'ListValue';
         loc?: Location;
-        values: Array<Value>;
+        values: Value[];
     };
 
     export type ObjectValue = {
         kind: 'ObjectValue';
         loc?: Location;
-        fields: Array<ObjectField>;
+        fields: ObjectField[];
     };
 
     export type ObjectField = {
@@ -492,7 +492,7 @@ declare module "graphql/language/ast" {
         kind: 'Directive';
         loc?: Location;
         name: Name;
-        arguments?: Array<Argument>;
+        arguments?: Argument[];
     };
 
 
@@ -530,8 +530,8 @@ declare module "graphql/language/ast" {
     export type SchemaDefinition = {
         kind: 'SchemaDefinition';
         loc?: Location;
-        directives: Array<Directive>;
-        operationTypes: Array<OperationTypeDefinition>;
+        directives: Directive[];
+        operationTypes: OperationTypeDefinition[];
     };
 
     export type OperationTypeDefinition = {
@@ -552,25 +552,25 @@ declare module "graphql/language/ast" {
         kind: 'ScalarTypeDefinition';
         loc?: Location;
         name: Name;
-        directives?: Array<Directive>;
+        directives?: Directive[];
     };
 
     export type ObjectTypeDefinition = {
         kind: 'ObjectTypeDefinition';
         loc?: Location;
         name: Name;
-        interfaces?: Array<NamedType>;
-        directives?: Array<Directive>;
-        fields: Array<FieldDefinition>;
+        interfaces?: NamedType[];
+        directives?: Directive[];
+        fields: FieldDefinition[];
     };
 
     export type FieldDefinition = {
         kind: 'FieldDefinition';
         loc?: Location;
         name: Name;
-        arguments: Array<InputValueDefinition>;
+        arguments: InputValueDefinition[];
         type: Type;
-        directives?: Array<Directive>;
+        directives?: Directive[];
     };
 
     export type InputValueDefinition = {
@@ -579,46 +579,46 @@ declare module "graphql/language/ast" {
         name: Name;
         type: Type;
         defaultValue?: Value;
-        directives?: Array<Directive>;
+        directives?: Directive[];
     };
 
     export type InterfaceTypeDefinition = {
         kind: 'InterfaceTypeDefinition';
         loc?: Location;
         name: Name;
-        directives?: Array<Directive>;
-        fields: Array<FieldDefinition>;
+        directives?: Directive[];
+        fields: FieldDefinition[];
     };
 
     export type UnionTypeDefinition = {
         kind: 'UnionTypeDefinition';
         loc?: Location;
         name: Name;
-        directives?: Array<Directive>;
-        types: Array<NamedType>;
+        directives?: Directive[];
+        types: NamedType[];
     };
 
     export type EnumTypeDefinition = {
         kind: 'EnumTypeDefinition';
         loc?: Location;
         name: Name;
-        directives?: Array<Directive>;
-        values: Array<EnumValueDefinition>;
+        directives?: Directive[];
+        values: EnumValueDefinition[];
     };
 
     export type EnumValueDefinition = {
         kind: 'EnumValueDefinition';
         loc?: Location;
         name: Name;
-        directives?: Array<Directive>;
+        directives?: Directive[];
     };
 
     export type InputObjectTypeDefinition = {
         kind: 'InputObjectTypeDefinition';
         loc?: Location;
         name: Name;
-        directives?: Array<Directive>;
-        fields: Array<InputValueDefinition>;
+        directives?: Directive[];
+        fields: InputValueDefinition[];
     };
 
     export type TypeExtensionDefinition = {
@@ -631,8 +631,8 @@ declare module "graphql/language/ast" {
         kind: 'DirectiveDefinition';
         loc?: Location;
         name: Name;
-        arguments?: Array<InputValueDefinition>;
-        locations: Array<Name>;
+        arguments?: InputValueDefinition[];
+        locations: Name[];
     };
 
 }
@@ -1193,7 +1193,7 @@ declare module "graphql/type/definition" {
 
         constructor(config: GraphQLObjectTypeConfig<any>);
         getFields(): GraphQLFieldDefinitionMap;
-        getInterfaces(): Array<GraphQLInterfaceType>;
+        getInterfaces(): GraphQLInterfaceType[];
         toString(): string;
     }
 
@@ -1201,7 +1201,7 @@ declare module "graphql/type/definition" {
 
     export interface GraphQLObjectTypeConfig<TSource> {
         name: string;
-        interfaces?: Thunk<Array<GraphQLInterfaceType>>;
+        interfaces?: Thunk<GraphQLInterfaceType[]>;
         fields: Thunk<GraphQLFieldConfigMap<TSource>>;
         isTypeOf?: GraphQLIsTypeOfFn;
         description?: string;
@@ -1228,10 +1228,10 @@ declare module "graphql/type/definition" {
 
     export interface GraphQLResolveInfo {
         fieldName: string;
-        fieldASTs: Array<Field>;
+        fieldASTs: Field[];
         returnType: GraphQLOutputType;
         parentType: GraphQLCompositeType;
-        path: Array<string | number>;
+        path: (string | number)[];
         schema: GraphQLSchema;
         fragments: { [fragmentName: string]: FragmentDefinition };
         rootValue: any;
@@ -1265,7 +1265,7 @@ declare module "graphql/type/definition" {
         name: string;
         description: string;
         type: GraphQLOutputType;
-        args: Array<GraphQLArgument>;
+        args: GraphQLArgument[];
         resolve: GraphQLFieldResolveFn<any>;
         isDeprecated: boolean;
         deprecationReason: string;
@@ -1354,14 +1354,14 @@ declare module "graphql/type/definition" {
 
         constructor(config: GraphQLUnionTypeConfig);
 
-        getTypes(): Array<GraphQLObjectType>;
+        getTypes(): GraphQLObjectType[];
 
         toString(): string;
     }
 
     export interface GraphQLUnionTypeConfig {
         name: string;
-        types: Thunk<Array<GraphQLObjectType>>;
+        types: Thunk<GraphQLObjectType[]>;
         /**
          * Optionally provide a custom type resolver function. If one is not provided,
          * the default implementation will call `isTypeOf` on each implementing
@@ -1397,7 +1397,7 @@ declare module "graphql/type/definition" {
         description: string;
 
         constructor(config: GraphQLEnumTypeConfig);
-        getValues(): Array<GraphQLEnumValueDefinition>;
+        getValues(): GraphQLEnumValueDefinition[];
         serialize(value: any): string;
         parseValue(value: any): any;
         parseLiteral(valueAST: Value): any;
@@ -1573,8 +1573,8 @@ declare module "graphql/type/directives" {
     class GraphQLDirective {
         name: string;
         description: string;
-        locations: Array<DirectiveLocationEnum>;
-        args: Array<GraphQLArgument>;
+        locations: DirectiveLocationEnum[];
+        args: GraphQLArgument[];
 
         constructor(config: GraphQLDirectiveConfig);
     }
@@ -1582,7 +1582,7 @@ declare module "graphql/type/directives" {
     interface GraphQLDirectiveConfig {
         name: string;
         description?: string;
-        locations: Array<DirectiveLocationEnum>;
+        locations: DirectiveLocationEnum[];
         args?: GraphQLFieldConfigArgumentMap;
     }
 
@@ -1609,7 +1609,7 @@ declare module "graphql/type/directives" {
     /**
      * The full list of specified directives.
      */
-    export const specifiedDirectives: Array<GraphQLDirective>;
+    export const specifiedDirectives: GraphQLDirective[];
 }
 
 declare module "graphql/type/introspection" {
@@ -1708,9 +1708,9 @@ declare module "graphql/type/schema" {
         // private _queryType: GraphQLObjectType;
         // private _mutationType: GraphQLObjectType;
         // private _subscriptionType: GraphQLObjectType;
-        // private _directives: Array<GraphQLDirective>;
+        // private _directives: GraphQLDirective[];
         // private _typeMap: TypeMap;
-        // private _implementations: { [interfaceName: string]: Array<GraphQLObjectType> };
+        // private _implementations: { [interfaceName: string]: GraphQLObjectType[] };
         // private _possibleTypeMap: { [abstractName: string]: { [possibleName: string]: boolean } };
 
         constructor(config: GraphQLSchemaConfig)
@@ -1720,14 +1720,14 @@ declare module "graphql/type/schema" {
         getSubscriptionType(): GraphQLObjectType;
         getTypeMap(): GraphQLNamedType;
         getType(name: string): GraphQLType;
-        getPossibleTypes(abstractType: GraphQLAbstractType): Array<GraphQLObjectType>;
+        getPossibleTypes(abstractType: GraphQLAbstractType): GraphQLObjectType[];
 
         isPossibleType(
             abstractType: GraphQLAbstractType,
             possibleType: GraphQLObjectType
         ): boolean;
 
-        getDirectives(): Array<GraphQLDirective>;
+        getDirectives(): GraphQLDirective[];
         getDirective(name: string): GraphQLDirective;
     }
 
@@ -1735,8 +1735,8 @@ declare module "graphql/type/schema" {
         query: GraphQLObjectType;
         mutation?: GraphQLObjectType;
         subscription?: GraphQLObjectType;
-        types?: Array<GraphQLNamedType>;
-        directives?: Array<GraphQLDirective>;
+        types?: GraphQLNamedType[];
+        directives?: GraphQLDirective[];
     }
 }
 
@@ -1758,7 +1758,7 @@ declare module "graphql/validation/specifiedRules" {
     /**
      * This set includes all validation rules defined by the GraphQL spec.
      */
-    const specifiedRules: Array<(context: ValidationContext) => any>;
+    const specifiedRules: ((context: ValidationContext) => any)[];
 
 }
 
@@ -1803,7 +1803,7 @@ declare module "graphql/validation/validate" {
         schema: GraphQLSchema,
         ast: Document,
         rules?: any[]
-    ): Array<GraphQLError>;
+    ): GraphQLError[];
 
     /**
      * This uses a specialized visitor which runs multiple visitors in parallel,
@@ -1816,7 +1816,7 @@ declare module "graphql/validation/validate" {
         typeInfo: TypeInfo,
         documentAST: Document,
         rules: any[]
-    ): Array<GraphQLError>;
+    ): GraphQLError[];
 
     type HasSelectionSet = OperationDefinition | FragmentDefinition;
     interface VariableUsage {
@@ -1833,7 +1833,7 @@ declare module "graphql/validation/validate" {
         constructor(schema: GraphQLSchema, ast: Document, typeInfo: TypeInfo);
         reportError(error: GraphQLError): void;
 
-        getErrors(): Array<GraphQLError>;
+        getErrors(): GraphQLError[];
 
         getSchema(): GraphQLSchema;
 
@@ -1841,17 +1841,17 @@ declare module "graphql/validation/validate" {
 
         getFragment(name: string): FragmentDefinition;
 
-        getFragmentSpreads(node: SelectionSet): Array<FragmentSpread>;
+        getFragmentSpreads(node: SelectionSet): FragmentSpread[];
 
         getRecursivelyReferencedFragments(
             operation: OperationDefinition
-        ): Array<FragmentDefinition>;
+        ): FragmentDefinition[];
 
-        getVariableUsages(node: HasSelectionSet): Array<VariableUsage>;
+        getVariableUsages(node: HasSelectionSet): VariableUsage[];
 
         getRecursiveVariableUsages(
             operation: OperationDefinition
-        ): Array<VariableUsage>;
+        ): VariableUsage[];
 
         getType(): GraphQLOutputType;
 
@@ -1904,7 +1904,7 @@ declare module "graphql/execution/execute" {
         rootValue: any;
         operation: OperationDefinition;
         variableValues: { [key: string]: any };
-        errors: Array<GraphQLError>;
+        errors: GraphQLError[];
     }
 
     /**
@@ -1914,7 +1914,7 @@ declare module "graphql/execution/execute" {
      */
     interface ExecutionResult {
         data: Object;
-        errors?: Array<GraphQLError>;
+        errors?: GraphQLError[];
     }
 
     /**
@@ -1948,7 +1948,7 @@ declare module "graphql/execution/values" {
      */
     function getVariableValues(
         schema: GraphQLSchema,
-        definitionASTs: Array<VariableDefinition>,
+        definitionASTs: VariableDefinition[],
         inputs: { [key: string]: any }
     ): { [key: string]: any };
 
@@ -1957,8 +1957,8 @@ declare module "graphql/execution/values" {
      * definitions and list of argument AST nodes.
      */
     function getArgumentValues(
-        argDefs: Array<GraphQLArgument>,
-        argASTs: Array<Argument>,
+        argDefs: GraphQLArgument[],
+        argASTs: Argument[],
         variableValues?: { [key: string]: any }
     ): { [key: string]: any };
 }
@@ -1988,7 +1988,7 @@ declare module "graphql/error/formatError" {
 
     type GraphQLFormattedError = {
         message: string,
-        locations: Array<GraphQLErrorLocation>
+        locations: GraphQLErrorLocation[]
     };
 
     type GraphQLErrorLocation = {
@@ -2027,7 +2027,7 @@ declare module "graphql/error/GraphQLError" {
          *
          * Enumerable, and appears in the result of JSON.stringify().
          */
-        locations: Array<{ line: number, column: number }> | void;
+        locations: { line: number, column: number }[] | void;
 
         /**
          * An array describing the JSON-path into the execution response which
@@ -2035,12 +2035,12 @@ declare module "graphql/error/GraphQLError" {
          *
          * Enumerable, and appears in the result of JSON.stringify().
          */
-        path: Array<string | number> | void;
+        path: (string | number)[] | void;
 
         /**
          * An array of GraphQL AST Nodes corresponding to this error.
          */
-        nodes: Array<Node> | void;
+        nodes: Node[] | void;
 
         /**
          * The source GraphQL document corresponding to this error.
@@ -2070,8 +2070,8 @@ declare module "graphql/error/locatedError" {
      */
     function locatedError<T>(
         originalError: Error,
-        nodes: Array<T>,
-        path: Array<string | number>
+        nodes: T[],
+        path: (string | number)[]
     ): GraphQLError;
 }
 
@@ -2259,7 +2259,7 @@ declare module "graphql/utilities/concatAST" {
      * concatenate the ASTs together into batched AST, useful for validating many
      * GraphQL source files which together represent one conceptual application.
      */
-    function concatAST(asts: Array<Document>): Document;
+    function concatAST(asts: Document[]): Document;
 }
 
 declare module "graphql/utilities/extendSchema" {
@@ -2405,8 +2405,8 @@ declare module "graphql/utilities/introspectionQuery" {
         queryType: IntrospectionNamedTypeRef;
         mutationType?: IntrospectionNamedTypeRef;
         subscriptionType?: IntrospectionNamedTypeRef;
-        types: Array<IntrospectionType>;
-        directives: Array<IntrospectionDirective>;
+        types: IntrospectionType[];
+        directives: IntrospectionDirective[];
     }
 
     type IntrospectionType =
@@ -2427,37 +2427,37 @@ declare module "graphql/utilities/introspectionQuery" {
         kind: 'OBJECT';
         name: string;
         description?: string;
-        fields: Array<IntrospectionField>;
-        interfaces: Array<IntrospectionNamedTypeRef>;
+        fields: IntrospectionField[];
+        interfaces: IntrospectionNamedTypeRef[];
     }
 
     interface IntrospectionInterfaceType {
         kind: 'INTERFACE';
         name: string;
         description?: string;
-        fields: Array<IntrospectionField>;
-        possibleTypes: Array<IntrospectionNamedTypeRef>;
+        fields: IntrospectionField[];
+        possibleTypes: IntrospectionNamedTypeRef[];
     }
 
     interface IntrospectionUnionType {
         kind: 'UNION';
         name: string;
         description?: string;
-        possibleTypes: Array<IntrospectionNamedTypeRef>;
+        possibleTypes: IntrospectionNamedTypeRef[];
     }
 
     interface IntrospectionEnumType {
         kind: 'ENUM';
         name: string;
         description?: string;
-        enumValues: Array<IntrospectionEnumValue>;
+        enumValues: IntrospectionEnumValue[];
     }
 
     interface IntrospectionInputObjectType {
         kind: 'INPUT_OBJECT';
         name: string;
         description?: string;
-        inputFields: Array<IntrospectionInputValue>;
+        inputFields: IntrospectionInputValue[];
     }
 
     type IntrospectionTypeRef =
@@ -2483,7 +2483,7 @@ declare module "graphql/utilities/introspectionQuery" {
     interface IntrospectionField {
         name: string;
         description?: string;
-        args: Array<IntrospectionInputValue>;
+        args: IntrospectionInputValue[];
         type: IntrospectionTypeRef;
         isDeprecated: boolean;
         deprecationReason?: string;
@@ -2506,8 +2506,8 @@ declare module "graphql/utilities/introspectionQuery" {
     interface IntrospectionDirective {
         name: string;
         description?: string;
-        locations: Array<DirectiveLocationEnum>;
-        args: Array<IntrospectionInputValue>;
+        locations: DirectiveLocationEnum[];
+        args: IntrospectionInputValue[];
     }
 }
 
@@ -2522,7 +2522,7 @@ declare module "graphql/utilities/isValidJSValue" {
     function isValidJSValue(
         value: any,
         type: GraphQLInputType
-    ): Array<string>;
+    ): string[];
 }
 
 declare module "graphql/utilities/isValidLiteralValue" {
@@ -2539,7 +2539,7 @@ declare module "graphql/utilities/isValidLiteralValue" {
     function isValidLiteralValue(
         type: GraphQLInputType,
         valueAST: Value
-    ): Array<string>;
+    ): string[];
 }
 
 declare module "graphql/utilities/schemaPrinter" {

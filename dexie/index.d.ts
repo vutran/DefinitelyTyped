@@ -10,18 +10,18 @@ interface Thenable<R> {
     then<U>(onFulfilled?: (value: R) => U, onRejected?: (error: any) => U): Thenable<U>;
 }
 
-declare type IndexableType = string | number | Date | Array<string | number | Date>;
+declare type IndexableType = string | number | Date | (string | number | Date)[];
 
 declare class Dexie {
     constructor(databaseName: string);
 
-    constructor(databaseName: string, options: { addons: Array<(db: Dexie) => void> });
+    constructor(databaseName: string, options: { addons: ((db: Dexie) => void)[] });
 
     name: string;
     tables: Dexie.Table<any, any>[];
     verno: number;
 
-    static addons: Array<(db: Dexie) => void>;
+    static addons: ((db: Dexie) => void)[];
     static version: number;
 
     static getDatabaseNames(): Dexie.Promise<string[]>;
@@ -225,9 +225,9 @@ declare namespace Dexie {
 
         each(callback: (obj: T, cursor: IDBCursor) => any): Promise<void>;
 
-        toArray(): Promise<Array<T>>;
-        toArray<U>(onFulfilled: (value: Array<T>) => Thenable<U>): Promise<U>;
-        toArray<U>(onFulfilled: (value: Array<T>) => U): Promise<U>;
+        toArray(): Promise<T[]>;
+        toArray<U>(onFulfilled: (value: T[]) => Thenable<U>): Promise<U>;
+        toArray<U>(onFulfilled: (value: T[]) => U): Promise<U>;
 
         toCollection(): Collection<T, Key>;
         orderBy(index: string): Collection<T, Key>;
@@ -252,14 +252,14 @@ declare namespace Dexie {
         between(lower: IndexableType, upper: IndexableType, includeLower?: boolean, includeUpper?: boolean): Collection<T, Key>;
         equals(key: IndexableType): Collection<T, Key>;
         equalsIgnoreCase(key: string): Collection<T, Key>;
-        inAnyRange(ranges: Array<IndexableType[]>): Collection<T, Key>;
+        inAnyRange(ranges: IndexableType[][]): Collection<T, Key>;
         startsWith(key: string): Collection<T, Key>;
         startsWithAnyOf(prefixes: string[]): Collection<T, Key>;
         startsWithAnyOf(...prefixes: string[]): Collection<T, Key>;
         startsWithIgnoreCase(key: string): Collection<T, Key>;
         startsWithAnyOfIgnoreCase(prefixes: string[]): Collection<T, Key>;
         startsWithAnyOfIgnoreCase(...prefixes: string[]): Collection<T, Key>;
-        noneOf(keys: Array<IndexableType>): Collection<T, Key>;
+        noneOf(keys: IndexableType[]): Collection<T, Key>;
         notEqual(key: IndexableType): Collection<T, Key>;
     }
 
@@ -288,9 +288,9 @@ declare namespace Dexie {
         sortBy(keyPath: string): Promise<T[]>;
         sortBy<U>(keyPath: string, onFulfilled: (value: T[]) => Thenable<U>): Promise<U>;
         sortBy<U>(keyPath: string, onFulfilled: (value: T[]) => U): Promise<U>;
-        toArray(): Promise<Array<T>>;
-        toArray<U>(onFulfilled: (value: Array<T>) => Thenable<U>): Promise<U>;
-        toArray<U>(onFulfilled: (value: Array<T>) => U): Promise<U>;
+        toArray(): Promise<T[]>;
+        toArray<U>(onFulfilled: (value: T[]) => Thenable<U>): Promise<U>;
+        toArray<U>(onFulfilled: (value: T[]) => U): Promise<U>;
         uniqueKeys(): Promise<Key[]>;
         uniqueKeys<U>(onFulfilled: (value: Key[]) => Thenable<U>): Promise<U>;
         uniqueKeys<U>(onFulfilled: (value: Key[]) => U): Promise<U>;
