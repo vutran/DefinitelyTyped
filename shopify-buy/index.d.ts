@@ -22,7 +22,7 @@ declare namespace ShopifyBuy {
         src: string;
         position: number;
         product_id: string;
-        variant_ids: Array<string>;
+        variant_ids: string[];
         created_at: string;
         updated_at: string;
     }
@@ -170,12 +170,12 @@ declare namespace ShopifyBuy {
             /**
              * Fetches a list of collections matching a specified query.
              */
-            fetchQueryCollections(query?: any): Promise<Array<any>>;
+            fetchQueryCollections(query?: any): Promise<any[]>;
 
             /**
              * Fetches a list of products matching a specified query.
              */
-            fetchQueryProducts(query?: any): Promise<Array<ProductModel>>;
+            fetchQueryProducts(query?: any): Promise<ProductModel[]>;
 
         }
 
@@ -199,7 +199,7 @@ declare namespace ShopifyBuy {
             /**
              * Get current line items for cart
              */
-            lineItems: Array<CartLineItem>;
+            lineItems: CartLineItem[];
 
             /**
              * Get current subtotal price for all line items
@@ -214,7 +214,7 @@ declare namespace ShopifyBuy {
             /**
              * Add items to cart. Updates cart's lineItems
              */
-            addVariants(item: CartModelItem, nextItem?: Array<CartModelItem>): Promise<CartModel>;
+            addVariants(item: CartModelItem, nextItem?: CartModelItem[]): Promise<CartModel>;
 
             /**
              * Remove all line items from cart
@@ -248,7 +248,7 @@ declare namespace ShopifyBuy {
             /**
              * All images associated with product.
              */
-            images: Array<Image>;
+            images: Image[];
 
             /**
              * Product title
@@ -258,12 +258,12 @@ declare namespace ShopifyBuy {
             /**
              * All variants of a product.
              */
-            variants: Array<ProductVariantModel>;
+            variants: ProductVariantModel[];
 
             /**
              * Get array of options with nested values. Useful for creating UI for selecting options.
              */
-            options: Array<Option>;
+            options: Option[];
 
             /**
              * Retrieve variant for currently selected options
@@ -316,7 +316,7 @@ declare namespace ShopifyBuy {
             /**
              * Option values associated with this variant, ex {name: "color", value: "Blue"}
             */
-            optionValues: Array<Option>;
+            optionValues: Option[];
 
             /**
              * Price of variant, formatted as currency
@@ -361,7 +361,7 @@ declare namespace ShopifyBuy {
             /**
              * possible values for selection
              */
-            values: Array<any>;
+            values: any[];
 
         }
 

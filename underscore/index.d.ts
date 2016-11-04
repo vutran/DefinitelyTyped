@@ -90,7 +90,7 @@ declare namespace _ {
         * @param key First argument to Underscore object functions.
         **/
         <T>(value: _.Dictionary<T>): Underscore<T>;
-        <T>(value: Array<T>): Underscore<T>;
+        <T>(value: T[]): Underscore<T>;
         <T>(value: T): Underscore<T>;
 
         /* *************
@@ -737,7 +737,7 @@ declare namespace _ {
         * @return Array where Array[0] are the elements in `array` that satisfies the predicate, and Array[1] the elements that did not.
         **/
         partition<T>(
-            array: Array<T>,
+            array: T[],
             iterator: _.ListIterator<T, boolean>,
             context?: any): T[][];
 
@@ -5986,7 +5986,7 @@ declare namespace _ {
         * @param arr Arrays and/or values to concatenate into a new array. See the discussion below for details.
         * @return A new array comprised of the array on which it is called
         **/
-        concat(...arr: Array<T[]>): _Chain<T>;
+        concat(...arr: T[][]): _Chain<T>;
 
         /**
         * Join all elements of an array into a string.
@@ -6006,7 +6006,7 @@ declare namespace _ {
         * @param item The elements to add to the end of the array.
         * @return The array with the element added to the end.
         **/
-        push(...item: Array<T>): _Chain<T>;
+        push(...item: T[]): _Chain<T>;
 
         /**
         * Reverses an array in place. The first array element becomes the last and the last becomes the first.
@@ -6042,7 +6042,7 @@ declare namespace _ {
         * @param items The element to add to the array. If you don't specify any elements, splice will only remove elements from the array.
         * @return An array containing the deleted elements. If only one element is removed, an array of one element is returned. If no elements are removed, an empty array is returned.
         **/
-        splice(index: number, quantity: number, ...items: Array<T>): _Chain<T>;
+        splice(index: number, quantity: number, ...items: T[]): _Chain<T>;
 
         /**
         * A string representing the specified array and its elements.
@@ -6055,7 +6055,7 @@ declare namespace _ {
         * @param items The elements to add to the front of the array.
         * @return The array with the element added to the beginning.
         **/
-        unshift(...items: Array<T>): _Chain<T>;
+        unshift(...items: T[]): _Chain<T>;
 
         /********** *
          * Chaining *

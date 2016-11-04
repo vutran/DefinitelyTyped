@@ -2130,7 +2130,7 @@ declare namespace Excel {
     class WorksheetCollection extends OfficeExtension.ClientObject {
         private m__items;
         /** Gets the loaded child items in this collection. */
-        items: Array<Excel.Worksheet>;
+        items: Excel.Worksheet[];
         /**
          *
          * Adds a new worksheet to the workbook. The worksheet will be added at the end of existing worksheets. If you wish to activate the newly added worksheet, call ".activate() on it.
@@ -2803,7 +2803,7 @@ declare namespace Excel {
     class RangeViewCollection extends OfficeExtension.ClientObject {
         private m__items;
         /** Gets the loaded child items in this collection. */
-        items: Array<Excel.RangeView>;
+        items: Excel.RangeView[];
         /**
          *
          * Gets a RangeView Row via it's index. Zero-Indexed.
@@ -5934,7 +5934,7 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.2]
          */
-        aveDev(...values: Array<number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>>): FunctionResult<number>;
+        aveDev(...values: (number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>)[]): FunctionResult<number>;
         /**
          *
          * Returns the average (arithmetic mean) of its arguments, which can be numbers or names, arrays, or references that contain numbers.
@@ -5943,7 +5943,7 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.2]
          */
-        average(...values: Array<number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>>): FunctionResult<number>;
+        average(...values: (number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>)[]): FunctionResult<number>;
         /**
          *
          * Returns the average (arithmetic mean) of its arguments, evaluating text and FALSE in arguments as 0; TRUE evaluates as 1. Arguments can be numbers, names, arrays, or references.
@@ -5952,7 +5952,7 @@ declare namespace Excel {
          *
          * [Api set: ExcelApi 1.2]
          */
-        averageA(...values: Array<number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>>): FunctionResult<number>;
+        averageA(...values: (number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>)[]): FunctionResult<number>;
         /**
          *
          * Finds average(arithmetic mean) for the cells specified by a given condition or criteria.

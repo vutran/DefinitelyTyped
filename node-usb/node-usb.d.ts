@@ -14,7 +14,7 @@ declare module "usb" {
     public portNumbers: number[];
     public deviceDescriptor: DeviceDescriptor;
     public configDescriptor: ConfigDescriptor;
-    public interfaces: Array<Interface>;
+    public interfaces: Interface[];
 
     __open(): void;
     __claimInterface(addr: number): void;
@@ -59,7 +59,7 @@ declare module "usb" {
 
   class Interface {
     public descriptor: InterfaceDescriptor;
-    public endpoints: Array<IEndpoint>;
+    public endpoints: IEndpoint[];
     constructor(device: Device, id: number);
     claim(): void;
     release(closeEndpoints?: (err?: string) => void, cb?: (err?: string) => void): void;
@@ -124,7 +124,7 @@ declare module "usb" {
 
   function findByIds(vid: number, pid: number): Device;
   function on(event: string, callback: (device: Device) => void): void;
-  function getDeviceList(): Array<Device>;
+  function getDeviceList(): Device[];
   function setDebugLevel(level: number): void;
 
   const LIBUSB_CLASS_PER_INTERFACE: number;

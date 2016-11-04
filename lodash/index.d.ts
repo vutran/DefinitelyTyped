@@ -279,7 +279,7 @@ declare namespace _ {
         (value: string): LoDashImplicitStringWrapper;
         (value: boolean): LoDashImplicitWrapper<boolean>;
         (value: number[]): LoDashImplicitNumberArrayWrapper;
-        <T>(value: Array<T>): LoDashImplicitArrayWrapper<T>;
+        <T>(value: T[]): LoDashImplicitArrayWrapper<T>;
         <T extends {}>(value: T): LoDashImplicitObjectWrapper<T>;
         (value: any): LoDashImplicitWrapper<any>;
 
@@ -531,7 +531,7 @@ declare namespace _ {
          */
         difference<T>(
             array: T[]|List<T>,
-            ...values: Array<T[]|List<T>>
+            ...values: (T[]|List<T>)[]
         ): T[];
     }
 
@@ -5910,24 +5910,24 @@ declare namespace _ {
          * @param items
          * @return Returns the new concatenated array.
          */
-        concat<TItem>(...items: Array<TItem|Array<TItem>>): LoDashImplicitArrayWrapper<TItem>;
+        concat<TItem>(...items: (TItem|TItem[])[]): LoDashImplicitArrayWrapper<TItem>;
 
         /**
          * @see _.concat
          */
-        concat(...items: Array<T|Array<T>>): LoDashImplicitArrayWrapper<T>;
+        concat(...items: (T|T[])[]): LoDashImplicitArrayWrapper<T>;
     }
 
     interface LoDashExplicitWrapperBase<T, TWrapper> {
         /**
          * @see _.concat
          */
-        concat<TItem>(...items: Array<TItem|Array<TItem>>): LoDashExplicitArrayWrapper<TItem>;
+        concat<TItem>(...items: (TItem|TItem[])[]): LoDashExplicitArrayWrapper<TItem>;
 
         /**
          * @see _.concat
          */
-        concat(...items: Array<T|Array<T>>): LoDashExplicitArrayWrapper<T>;
+        concat(...items: (T|T[])[]): LoDashExplicitArrayWrapper<T>;
     }
 
     //_.prototype.plant
@@ -6902,7 +6902,7 @@ declare namespace _ {
         * @return The found element, else undefined.
         **/
         findLast<T>(
-            collection: Array<T>,
+            collection: T[],
             callback: ListIterator<T, boolean>): T;
 
         /**
@@ -6924,7 +6924,7 @@ declare namespace _ {
         * @param _.pluck style callback
         **/
         findLast<W, T>(
-            collection: Array<T>,
+            collection: T[],
             whereValue: W): T;
 
         /**
@@ -6948,7 +6948,7 @@ declare namespace _ {
         * @param _.where style callback
         **/
         findLast<T>(
-            collection: Array<T>,
+            collection: T[],
             pluckValue: string): T;
 
         /**
@@ -8496,7 +8496,7 @@ declare namespace _ {
         * @return Returns the accumulated value.
         **/
         reduce<T, TResult>(
-            collection: Array<T>,
+            collection: T[],
             callback: MemoIterator<T, TResult>,
             accumulator: TResult): TResult;
 
@@ -8528,7 +8528,7 @@ declare namespace _ {
         * @see _.reduce
         **/
         reduce<T, TResult>(
-            collection: Array<T>,
+            collection: T[],
             callback: MemoIterator<T, TResult>): TResult;
 
         /**
@@ -8626,7 +8626,7 @@ declare namespace _ {
         * @return The accumulated value.
         **/
         reduceRight<T, TResult>(
-            collection: Array<T>,
+            collection: T[],
             callback: MemoIterator<T, TResult>,
             accumulator: TResult): TResult;
 
@@ -8650,7 +8650,7 @@ declare namespace _ {
         * @see _.reduceRight
         **/
         reduceRight<T, TResult>(
-            collection: Array<T>,
+            collection: T[],
             callback: MemoIterator<T, TResult>): TResult;
 
         /**
@@ -9338,14 +9338,14 @@ declare namespace _ {
          * @see _.sortBy
          */
         sortBy<T>(
-            collection: (Array<T>|List<T>),
+            collection: (T[]|List<T>),
             iteratees: (ListIterator<T, any>|string|Object)[]): T[];
 
         /**
          * @see _.sortBy
          */
         sortBy<T>(
-            collection: (Array<T>|List<T>),
+            collection: (T[]|List<T>),
             ...iteratees: (ListIterator<T, boolean>|Object|string)[]): T[];
     }
 
