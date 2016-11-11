@@ -31,26 +31,21 @@ interface IAccountingSettings {
 interface IAccountingStatic {
     // format any number into currency
     formatMoney(number: number, symbol?: string, precision?: number, thousand?: string, decimal?: string, format?: string): string;
-    formatMoney(number: number, options: IAccountingCurrencySettings<string>): string;
-    formatMoney(number: number, options: IAccountingCurrencySettings<IAccountingCurrencyFormat>): string;
+    formatMoney(number: number, options: IAccountingCurrencySettings<string> | IAccountingCurrencySettings<IAccountingCurrencyFormat>): string;
 
     formatMoney(numbers: number[], symbol?: string, precision?: number, thousand?: string, decimal?: string, format?: string): string[];
-    formatMoney(numbers: number[], options: IAccountingCurrencySettings<string>): string[];
-    formatMoney(numbers: number[], options: IAccountingCurrencySettings<IAccountingCurrencyFormat>): string[];
+    formatMoney(numbers: number[], options: IAccountingCurrencySettings<string> | IAccountingCurrencySettings<IAccountingCurrencyFormat>): string[];
 
     // generic case (any array of numbers)
     formatMoney(numbers: any[], symbol?: string, precision?: number, thousand?: string, decimal?: string, format?: string): any[];
-    formatMoney(numbers: any[], options: IAccountingCurrencySettings<string>): any[];
-    formatMoney(numbers: any[], options: IAccountingCurrencySettings<IAccountingCurrencyFormat>): any[];
+    formatMoney(numbers: any[], options: IAccountingCurrencySettings<string> | IAccountingCurrencySettings<IAccountingCurrencyFormat>): any[];
 
     // format a list of values for column-display
     formatColumn(numbers: number[], symbol?: string, precision?: number, thousand?: string, decimal?: string, format?: string): string[];
-    formatColumn(numbers: number[], options: IAccountingCurrencySettings<string>): string[];
-    formatColumn(numbers: number[], options: IAccountingCurrencySettings<IAccountingCurrencyFormat>): string[];
+    formatColumn(numbers: number[], options: IAccountingCurrencySettings<string> | IAccountingCurrencySettings<IAccountingCurrencyFormat>): string[];
 
     formatColumn(numbers: number[][], symbol?: string, precision?: number, thousand?: string, decimal?: string, format?: string): string[][];
-    formatColumn(numbers: number[][], options: IAccountingCurrencySettings<string>): string[][];
-    formatColumn(numbers: number[][], options: IAccountingCurrencySettings<IAccountingCurrencyFormat>): string[][];
+    formatColumn(numbers: number[][], options: IAccountingCurrencySettings<string> | IAccountingCurrencySettings<IAccountingCurrencyFormat>): string[][];
 
     // format a number with custom precision and localisation
     formatNumber(number: number, precision?: number, thousand?: string, decimal?: string): string;
