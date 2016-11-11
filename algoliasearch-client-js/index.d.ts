@@ -179,13 +179,6 @@ interface AlgoliaClient {
      */
     addUserKey(scopes: string[], cb: (err: Error, res: any) => void): void;
     /**
-     * Add global API Keys
-     * @param scopes
-     * return {Promise}
-     * https://github.com/algolia/algoliasearch-client-js#add-user-key---adduserkey
-     */
-    addUserKey(scopes: string[]): Promise<any>;
-    /**
      * Add global API Key
      * @param scopes
      * @param options
@@ -194,13 +187,13 @@ interface AlgoliaClient {
      */
     addUserKey(scopes: string[], options: AlgoliaUserKeyOptions, cb: (err: Error, res: any) => void): void;
     /**
-     * Add global API Key
+     * Add global API Keys
      * @param scopes
      * @param options
      * return {Promise}
      * https://github.com/algolia/algoliasearch-client-js#add-user-key---adduserkey
      */
-    addUserKey(scopes: string[], options: AlgoliaUserKeyOptions): Promise<any>;
+    addUserKey(scopes: string[], options?: AlgoliaUserKeyOptions): Promise<any>;
     /**
      * Update global API key
      * @param key
@@ -209,14 +202,6 @@ interface AlgoliaClient {
      * https://github.com/algolia/algoliasearch-client-js#update-user-key---updateuserkey
      */
     updateUserKey(key: string, scopes: string[], cb: (err: Error, res: any) => void): void;
-    /**
-     * Update global API key
-     * @param key
-     * @param scopes
-     * return {Promise}
-     * https://github.com/algolia/algoliasearch-client-js#update-user-key---updateuserkey
-     */
-    updateUserKey(key: string, scopes: string[]): Promise<any>;
     /**
      * Update global API key
      * @param key
@@ -234,7 +219,7 @@ interface AlgoliaClient {
      * return {Promise}
      * https://github.com/algolia/algoliasearch-client-js#update-user-key---updateuserkey
      */
-    updateUserKey(key: string, scopes: string[], options: AlgoliaUserKeyOptions): Promise<any>;
+    updateUserKey(key: string, scopes: string[], options?: AlgoliaUserKeyOptions): Promise<any>;
     /**
      * Gets the rights of a global key
      * @param key
@@ -511,20 +496,13 @@ interface AlgoliaIndex {
      */
     deleteUserKey(key: string, cb: (err: Error, res: any) => void): void;
     /**
-     * Gets a specific object
-     * @param objectID
-     * return {Promise}
-     * https://github.com/algolia/algoliasearch-client-js#find-by-ids---getobjects
-     */
-    getObject(objectID: string): Promise<any> ;
-    /**
      * Gets specific attributes from an object
      * @param objectID
      * @param attributes
      * return {Promise}
      * https://github.com/algolia/algoliasearch-client-js#find-by-ids---getobjects
      */
-    getObject(objectID: string, attributes: string[]): Promise<any> ;
+    getObject(objectID: string, attributes?: string[]): Promise<any> ;
     /**
      * Gets a list of objects
      * @param objectIDs
@@ -533,20 +511,13 @@ interface AlgoliaIndex {
      */
     getObjects(objectIDs: string[]): Promise<any> ;
     /**
-     * Add a specific object
-     * @param object without objectID
-     * return {Promise}
-     * https://github.com/algolia/algoliasearch-client-js#add-objects---addobjects
-     */
-    addObject(object: {}): Promise<any> ;
-    /**
      * Add a list of objects
      * @param object with objectID
      * @param objectID
      * return {Promise}
      * https://github.com/algolia/algoliasearch-client-js#add-objects---addobjects
      */
-    addObject(object: {}, objectID: string): Promise<any> ;
+    addObject(object: {}, objectID?: string): Promise<any> ;
     /**
      * Add list of objects
      * @param objects
@@ -599,18 +570,11 @@ interface AlgoliaIndex {
     /**
      * Delete objects that matches the query
      * @param query
-     * return {Promise}
-     * https://github.com/algolia/algoliasearch-client-js#delete-by-query---deletebyquery
-     */
-    deleteByQuery(query: string): Promise<any> ;
-    /**
-     * Delete objects that matches the query
-     * @param query
      * @param params of the object
      * return {Promise}
      * https://github.com/algolia/algoliasearch-client-js#delete-by-query---deletebyquery
      */
-    deleteByQuery(query: string, params: {}): Promise<any> ;
+    deleteByQuery(query: string, params?: {}): Promise<any> ;
     /**
      * Wait for an indexing task to be compete
      * @param taskID
@@ -740,18 +704,11 @@ interface AlgoliaIndex {
     /**
      * Add key for this index
      * @param scopes
-     * return {Promise}
-     * https://github.com/algolia/algoliasearch-client-js#add-user-key---adduserkey
-     */
-    addUserKey(scopes: string[]): Promise<any> ;
-    /**
-     * Add key for this index
-     * @param scopes
      * @param options
      * return {Promise}
      * https://github.com/algolia/algoliasearch-client-js#add-user-key---adduserkey
      */
-    addUserKey(scopes: string[], options: AlgoliaUserKeyOptions): Promise<any> ;
+    addUserKey(scopes: string[], options?: AlgoliaUserKeyOptions): Promise<any> ;
     /**
      * Update a key for this index
      * @param key
